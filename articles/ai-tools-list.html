@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026 年最新 AI 工具大全，收錄超過 50 款必備 AI 工具，涵蓋對話式 AI、繪圖生成、程式開發、影音製作、辦公效率等分類。">
+  <meta name="keywords" content="AI 工具, AI 工具推薦, 2026 AI, ChatGPT, Deepseek, Midjourney, Cursor, AI 繪圖, AI 程式">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="2026 年最新 AI 工具大全：50+ 必備工具整理 — AI 工具導航站">
+  <meta property="og:description" content="全面整理 2026 年最值得使用的 AI 工具與平台，從對話 AI 到程式開發一網打盡。">
+  <meta property="og:type" content="article">
+  <title>2026 年最新 AI 工具大全：50+ 必備工具整理 — AI 工具導航站</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "2026 年最新 AI 工具大全：50+ 必備工具整理",
+    "description": "全面整理 2026 年最值得使用的 AI 工具與平台，從對話 AI 到程式開發一網打盡。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-07-24",
+    "dateModified": "2026-07-24",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubehub.com/articles/ai-tools-list.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubehub.com/articles/ai-tools-list.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="../articles/ai-tools-list.html" class="nav-link active">工具大全</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="../articles/ai-tools-list.html" class="nav-link active">工具大全</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">2026 AI 工具大全</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">2026 年最新 AI 工具大全：50+ 必備工具整理</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-07-24
+          </span>
+          <span>·</span>
+          <span>約 15 分鐘閱讀</span>
+          <span class="badge badge-purple">工具大全</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <h2 id="intro">前言</h2>
+        <p>2026 年是 AI 技術爆發的一年，從大型語言模型到多模態 AI，從程式開發到影音製作，AI 工具已經深入每個領域。本文為你整理目前最值得關注的 AI 工具，依照應用場景分類，幫助你快速找到適合的工具。</p>
+
+        <!-- ===== AD IN-ARTICLE ===== -->
+        <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
+
+        <h2 id="chat-ai">對話式 AI</h2>
+        <p>對話式 AI 是當前最成熟的 AI 應用領域，以下幾款工具各具特色：</p>
+
+        <h3 id="chatgpt">ChatGPT（OpenAI）</h3>
+        <p>ChatGPT 由 OpenAI 開發，是目前用戶基數最大的 AI 對話產品。2026 年的 ChatGPT 已整合 GPT-4 多模態能力，支援文字、圖像、語音等多種輸入輸出方式。主要功能包括：</p>
+        <ul>
+          <li><strong>GPT-4 多模態：</strong>可同時處理文字與圖像，支援圖片分析、圖表解讀等。</li>
+          <li><strong>自訂 GPTs：</strong>用戶可建立專屬的 GPT 應用，上傳知識庫文件打造客製化助手。</li>
+          <li><strong>Advanced Data Analysis：</strong>內建程式執行環境，可直接進行數據分析與可视化。</li>
+          <li><strong>Plugin 生態：</strong>上千款第三方插件，擴展 ChatGPT 的功能邊界。</li>
+        </ul>
+        <p>ChatGPT 提供免費版本（GPT-3.5）與 Plus 訂閱（GPT-4，每月約 $20 美金），適合日常對話、程式撰寫、內容創作等場景。</p>
+
+        <h3 id="deepseek">Deepseek（深度求索）</h3>
+        <p>Deepseek 是近年最受關注的開源大語言模型之一，以其極高的性價比與開源精神聞名。Deepseek V4 支援 1M Token 的超長上下文窗口，在推理能力與成本控制上表現突出：</p>
+        <ul>
+          <li><strong>超長上下文：</strong>1M Token 可一次處理整部三國演義等級的文獻。</li>
+          <li><strong>深層推理：</strong>Chain-of-Thought 推理能力極強，在數學、程式等領域表現優異。</li>
+          <li><strong>開源可自部署：</strong>模型完全開源，可在自有硬體上部署，適合企業級應用。</li>
+          <li><strong>API 定價極低：</strong>API 價格僅為 GPT-4 的 1/10，適合大規模商用。</li>
+        </ul>
+        <p>Deepseek 提供免費網頁版與 API 服務，詳細教學請參考<a href="deepseek-guide.html" class="text-indigo-500 hover:text-indigo-400">Deepseek 繁體中文完整教學</a>。</p>
+
+        <h3 id="claude">Claude（Anthropic）</h3>
+        <p>Anthropic 開發的 Claude AI 以安全性與可靠性著稱，Claude 3.5 Sonnet 在程式生成與長文檔分析方面表現出色：</p>
+        <ul>
+          <li><strong>長文檔處理：</strong>支援 200K Token 上下文，適合分析大量文件。</li>
+          <li><strong>Artifacts：</strong>可即時生成程式碼、網頁、圖表等內容並預覽。</li>
+          <li><strong>Projects：</strong>知識庫功能，可上傳文件建立專屬知識庫。</li>
+          <li><strong>安全性：</strong>業界領先的紅隊測試與安全對齊機制。</li>
+        </ul>
+
+        <h2 id="image-ai">AI 繪圖生成</h2>
+        <p>AI 繪圖工具在 2026 年已發展到高度成熟的階段，以下幾款工具值得關注：</p>
+
+        <h3 id="midjourney">Midjourney</h3>
+        <p>Midjourney 是目前最受設計師喜愛的 AI 繪圖工具，其 V6 版本在細節品質與風格多樣性上達到新高度。透過 Discord 操作，提供極高的創作自由度。</p>
+
+        <h3 id="dalle">DALL·E 3（OpenAI）</h3>
+        <p>DALL·E 3 整合在 ChatGPT Plus 中，優勢在於與 GPT-4 的無縫協作，可直接在對話中生成與編輯圖像，理解自然語言提示詞的能力極強。</p>
+
+        <h3 id="stable-diffusion">Stable Diffusion 3</h3>
+        <p>Stability AI 推出的開源圖像生成模型，SD3 在文字渲染與構圖理解上有大幅進步。完全開源可自部署，適合需要自訂模型與批量生成的用戶。</p>
+
+        <h2 id="code-ai">程式開發 AI</h2>
+        <p>AI 輔助程式開發已成為工程師的標準配置：</p>
+
+        <h3 id="cursor">Cursor</h3>
+        <p>Cursor 是基於 VS Code 的 AI 原生程式碼編輯器，整合多種 LLM，提供以下功能：</p>
+        <ul>
+          <li><strong>對話式開發：</strong>直接在編輯器中與 AI 對話，修改程式碼。</li>
+          <li><strong>智慧補全：</strong>上下文感知的程式碼補全，支援多行生成。</li>
+          <li><strong>一鍵修復：</strong>自動診斷並修復程式碼錯誤與漏洞。</li>
+          <li><strong>多模型支援：</strong>可切換 GPT-4、Claude、Deepseek 等多種模型。</li>
+        </ul>
+
+        <h3 id="github-copilot">GitHub Copilot</h3>
+        <p>GitHub Copilot 是最早普及的 AI 程式碼助手，2026 年已整合至 GitHub 平台，提供從 issue 到 PR 的完整 AI 輔助流程。</p>
+
+        <h3 id="windsurf">Windsurf</h3>
+        <p>Codeium 推出的 AI 程式開發 IDE，強調流暢的開發體驗與強大的程式碼理解能力，支援多種程式語言與框架。</p>
+
+        <h2 id="search-ai">AI 搜尋引擎</h2>
+        <p>傳統搜尋引擎正在被 AI 重新定義：</p>
+
+        <h3 id="perplexity">Perplexity AI</h3>
+        <p>Perplexity 結合大型語言模型與即時網路搜尋，提供附有來源引用的準確回答。Pro 版本支援 GPT-4、Claude 等多種模型切換。</p>
+
+        <h3 id="you">You.com</h3>
+        <p>You.com 提供 AI 驅動的搜尋體驗，支援多種 AI 模式（聊天、寫作、繪圖等），強調隱私保護與無廣告搜尋。</p>
+
+        <h2 id="video-ai">影音製作 AI</h2>
+        <p>AI 在影音領域的應用正在快速成長：</p>
+
+        <h3 id="runway">Runway Gen-3</h3>
+        <p>Runway 提供 AI 影片生成與編輯工具，Gen-3 支援文字轉影片、圖像轉影片、影片風格轉換等，是創作者的重要工具。</p>
+
+        <h3 id="suno">Suno AI</h3>
+        <p>Suno 是 AI 音樂生成工具，支援根據文字描述生成完整歌曲（含人聲與伴奏），V4 版本在音樂品質與可控性上大幅提升。</p>
+
+        <h3 id="elevenlabs">ElevenLabs</h3>
+        <p>ElevenLabs 提供語音合成與克隆服務，支援多語言、多情感的高品質語音生成，廣泛應用於有聲書、配音等場景。</p>
+
+        <h2 id="productivity-ai">辦公效率 AI</h2>
+        <p>AI 正在重塑辦公方式：</p>
+
+        <h3 id="notion-ai">Notion AI</h3>
+        <p>Notion 內建的 AI 功能可協助寫作、摘要、翻譯、生成表格等，與筆記系統深度整合。</p>
+
+        <h3 id="gamma">Gamma</h3>
+        <p>Gamma 是 AI 簡報生成工具，輸入主題即可自動生成結構完整、設計精美的簡報，支援多種模板與客製化選項。</p>
+
+        <h3 id="otter">Otter.ai</h3>
+        <p>Otter.ai 提供 AI 會議記錄服務，可即時轉錄語音、標記重點、生成摘要，整合 Zoom、Google Meet 等主流會議平台。</p>
+
+        <h2 id="conclusion">結語</h2>
+        <p>2026 年的 AI 工具生態已經非常豐富，選擇適合自己需求的工具比追求最新更重要。建議先從對話式 AI 開始體驗，再根據工作場景逐步擴展到專用工具。AI 工具導航站將持續追蹤最新的 AI 發展，為你帶來第一手的評測與教學。</p>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-purple">工具大全</span>
+          <span class="badge badge-blue">AI 工具</span>
+          <span class="badge badge-green">2026 推薦</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="deepseek-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Deepseek 繁體中文完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從入門到進階的 Deepseek 使用指南</p>
+            </div>
+          </a>
+          <a href="chatgpt-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">ChatGPT 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從基礎到進階的 ChatGPT 應用指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">廣告位<br>300×250</div>
+        <div class="ad-slot" style="min-height:600px;">廣告位<br>300×600</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="ai-tools-list.html" class="text-[#64748b] hover:text-indigo-500 transition">AI 工具大全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">聯絡方式</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">隱私權政策</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
