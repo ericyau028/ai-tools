@@ -134,22 +134,34 @@
 
       <div id="article-content" class="article-content">
 
+        <!-- ===== KEY TAKEAWAYS BOX ===== -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>Midjourney 以 Discord 機器人運作，需先註冊 Discord 帳號</li>
+            <li>月費方案從 $10（Basic）到 $120（Mega），差異在 GPU 分鐘數</li>
+            <li>提示詞結構：主題 + 風格 + 細節 + 參數，參數用 <code>--</code> 開頭</li>
+            <li>V6 支援垫圖、Blend 混合與局部修改（Inpainting）</li>
+          </ul>
+        </div>
+
         <h2 id="intro">什麼是 Midjourney？</h2>
-        <p>Midjourney 是一款由獨立研究實驗室 Midjourney, Inc. 開發的 AI 繪圖生成工具，自 2022 年推出以來迅速成為全球最受歡迎的 AI 影像生成平台之一。與其他 AI 繪圖工具不同，Midjourney 目前並無獨立的網頁應用程式，而是以 Discord 機器人的形式運作——使用者透過 Discord 伺服器中的指令與機器人互動，輸入提示詞（Prompt）後，機器人便會生成高品質的圖像。</p>
-        <p>Midjourney 的核心優勢在於其出色的美學品味與藝術風格。相比其他 AI 繪圖工具，Midjourney 生成的圖像在構圖、光影、色彩上有著獨特的藝術感，特別適合概念藝術、角色設計、場景渲染、產品設計等創意領域。目前 Midjourney 已迭代至 V6 版本，在細節還原、文字理解、風格控制等方面有大幅提升。</p>
+        <p>Midjourney 是一款由獨立研究實驗室開發的 AI 繪圖工具，以 Discord 機器人形式運作。輸入提示詞後即可生成高品質圖像。</p>
+        <p>核心優勢在於出色的美學品味。相比其他工具，Midjourney 在構圖、光影、色彩上有獨特的藝術感，特別適合概念藝術、角色設計與場景渲染。</p>
 
         <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
 
         <h2 id="register">註冊與訂閱方案</h2>
-        <p>由於 Midjourney 是透過 Discord 運作，使用前需要先擁有 Discord 帳號。以下是完整的註冊流程：</p>
-        <ol>
-          <li>前往 Discord 官網（discord.com）註冊一個免費帳號。</li>
-          <li>前往 Midjourney 官網（midjourney.com），點擊「Join the Beta」。</li>
-          <li>授權 Discord 帳號加入 Midjourney 官方 Discord 伺服器。</li>
-          <li>在伺服器中找到任意 <code>#newbies-xxx</code> 頻道，輸入 <code>/subscribe</code> 查看方案。</li>
-          <li>選擇適合的方案並完成付款（支援信用卡與 PayPal）。</li>
+        <p>使用 Midjourney 前需要先有 Discord 帳號。以下是完整流程：</p>
+        <ol class="space-y-2">
+          <li><strong>註冊 Discord</strong> — 前往 discord.com 註冊免費帳號</li>
+          <li><strong>加入 Beta</strong> — 到 midjourney.com 點擊「Join the Beta」，授權 Discord</li>
+          <li><strong>進入新手頻道</strong> — 在伺服器找到 <code>#newbies-xxx</code> 頻道</li>
+          <li><strong>選擇方案</strong> — 輸入 <code>/subscribe</code> 查看並選擇方案</li>
         </ol>
-        <p>Midjourney 採用月費訂閱制，以下是目前的方案一覽：</p>
+
+        <p>Midjourney 採用月費訂閱制，以下為最新方案：</p>
+
         <table>
           <thead>
             <tr>
@@ -191,51 +203,70 @@
             </tr>
           </tbody>
         </table>
-        <blockquote>提示：分鐘數是指 GPU 運算時間，而非實際等待時間。一般情況下生成一張圖約需 30-60 秒。未用完的分鐘數不會累積至下個月。</blockquote>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 小提醒：</strong>分鐘數是 GPU 運算時間，生成一張圖約 30-60 秒。未用完的分鐘數不會累積至下個月。</p>
+        </div>
 
         <h2 id="discord">Discord 基本操作</h2>
-        <p>對於初次使用 Discord 的使用者，以下是 Midjourney 的基本操作指引：</p>
 
         <h3 id="discord-channels">頻道選擇</h3>
-        <p>加入 Midjourney 官方伺服器後，左側頻道列表中會看到多個 <code>#newbies-1</code> 至 <code>#newbies-199</code> 的頻道。這些是新會員專用的新手頻道，請任意選擇一個進入。你也可以在自己的 Discord 伺服器中邀請 Midjourney 機器人，建立私人創作空間。</p>
+        <p>加入官方伺服器後，左側有 <code>#newbies-1</code> 至 <code>#newbies-199</code> 新手頻道，任意選擇一個進入。你也可以在自己伺服器中邀請 Midjourney 機器人，建立私人創作空間。</p>
 
         <h3 id="discord-imagine">生成第一張圖</h3>
         <p>在輸入框中輸入以下指令：</p>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: a serene mountain lake at sunrise, misty clouds, photorealistic --ar 16:9</code></pre>
-        <p>按下 Enter 後，Midjourney 機器人會開始處理，約 30-60 秒後回傳一組 4 張圖片的網格（Grid）。在圖片下方會出現 U1-U4（放大單張）與 V1-V4（生成變體）的按鈕。</p>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <p class="text-sm font-mono text-gray-700 whitespace-pre-wrap">/imagine prompt: a serene mountain lake at sunrise, misty clouds, photorealistic --ar 16:9</p>
+        </div>
+        <p>按下 Enter 後，約 30-60 秒內回傳一組 4 張圖片的網格。下方有 U1-U4（放大）與 V1-V4（變體）按鈕。</p>
 
         <h3 id="discord-actions">圖像操作按鈕</h3>
-        <ul>
-          <li><strong>U (Upscale)</strong>：將選定的圖片放大並增加細節，例如 U1 代表放大第一張。</li>
-          <li><strong>V (Variate)</strong>：以選定的圖片為基礎生成新的變體，例如 V2 代表以第二張圖為基礎。</li>
-          <li><strong>🔄 (Reroll)</strong>：重新生成一組新的 4 張圖片。</li>
-          <li><strong>✉️ (Envelope)</strong>：將圖片以私訊方式發送給你。</li>
+        <ul class="space-y-1">
+          <li><strong>U (Upscale)</strong> — 放大選定圖片並增加細節</li>
+          <li><strong>V (Variate)</strong> — 以選定圖片為基礎生成變體</li>
+          <li><strong>🔄 (Reroll)</strong> — 重新生成一組 4 張圖片</li>
+          <li><strong>✉️ (Envelope)</strong> — 將圖片以私訊發送</li>
         </ul>
 
         <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
 
         <h2 id="prompt-tips">提示詞撰寫技巧</h2>
-        <p>提示詞（Prompt）是 Midjourney 的核心。一個好的提示詞能讓 AI 精準理解你的需求，生成令人驚豔的作品。</p>
+        <p>提示詞是 Midjourney 的核心。好的提示詞能讓 AI 精準理解你的需求。</p>
 
         <h3 id="prompt-structure">提示詞基本結構</h3>
-        <p>建議遵循以下結構：<strong>主題 + 風格 + 細節 + 參數</strong></p>
-        <ul>
-          <li><strong>主題</strong>：描述主要物件，如「一隻貓」、「未來城市」。</li>
-          <li><strong>風格</strong>：指定藝術風格，如「寫實」、「水彩」、「賽博龐克」。</li>
-          <li><strong>細節</strong>：描述環境、光線、色彩、構圖等，如「黃昏光線」、「景深模糊」。</li>
-          <li><strong>參數</strong>：以 <code>--</code> 開頭的技術參數，如 <code>--ar 16:9 --v 6</code>。</li>
-        </ul>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>範例結構：
-/imagine prompt: [主題], [風格], [細節描述], [環境設定] --[參數] --[參數]
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>📐 標準結構：</strong><strong>主題</strong> + <strong>風格</strong> + <strong>細節</strong> + <strong>參數</strong></p>
+        </div>
 
-實際範例：
-/imagine prompt: 一隻白貓, 水彩風格, 柔和光線, 綠色眼睛, 花卉背景 --ar 4:3 --v 6</code></pre>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 my-4">
+          <div class="bg-white rounded-lg p-3 border border-gray-200">
+            <p class="font-bold text-gray-800 text-sm mb-1">主題</p>
+            <p class="text-xs text-gray-600">主要物件，如「一隻貓」、「未來城市」</p>
+          </div>
+          <div class="bg-white rounded-lg p-3 border border-gray-200">
+            <p class="font-bold text-gray-800 text-sm mb-1">風格</p>
+            <p class="text-xs text-gray-600">藝術風格，如「寫實」、「水彩」、「賽博龐克」</p>
+          </div>
+          <div class="bg-white rounded-lg p-3 border border-gray-200">
+            <p class="font-bold text-gray-800 text-sm mb-1">細節</p>
+            <p class="text-xs text-gray-600">環境、光線、色彩，如「黃昏光線」、「景深」</p>
+          </div>
+          <div class="bg-white rounded-lg p-3 border border-gray-200">
+            <p class="font-bold text-gray-800 text-sm mb-1">參數</p>
+            <p class="text-xs text-gray-600">以 <code>--</code> 開頭，如 <code>--ar 16:9 --v 6</code></p>
+          </div>
+        </div>
+
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <p class="text-sm font-mono text-gray-700 whitespace-pre-wrap">/imagine prompt: 一隻白貓, 水彩風格, 柔和光線, 綠色眼睛, 花卉背景 --ar 4:3 --v 6</p>
+        </div>
 
         <h3 id="prompt-language">語言選擇</h3>
-        <p>Midjourney 對英文提示詞的理解最佳，但近期版本對中文的支援也有明顯改善。建議進階使用者以英文撰寫提示詞以獲得最精準的結果，初學者則可以先使用中文快速入門。最有效的做法是「中英混合」——使用中文描述主題，英文指定風格與技術詞彙。</p>
+        <p>英文提示詞效果最佳，但近期版本對中文支援也有明顯改善。建議進階用英文，初學者先用中文。有效作法是「中英混合」— 中文描述主題，英文指定風格。</p>
 
         <h2 id="parameters">常用參數說明</h2>
-        <p>Midjourney 提供多種參數來微調生成結果。以下是最常用的參數一覽：</p>
+        <p>Midjourney 提供多種參數微調生成結果，以下是最常用的一覽：</p>
+
         <table>
           <thead>
             <tr>
@@ -248,134 +279,145 @@
           <tbody>
             <tr>
               <td><code>--ar</code></td>
-              <td>Aspect Ratio（寬高比）</td>
+              <td>Aspect Ratio</td>
               <td>任意比例</td>
-              <td>設定圖片比例，如 <code>--ar 16:9</code>、<code>--ar 4:3</code>、<code>--ar 9:16</code>（直式）</td>
+              <td>設定寬高比，如 <code>--ar 16:9</code></td>
             </tr>
             <tr>
               <td><code>--v</code></td>
-              <td>Model Version（模型版本）</td>
+              <td>模型版本</td>
               <td>1 ~ 6</td>
-              <td>指定 Midjourney 版本，目前最新為 <code>--v 6</code>，建議使用最新版</td>
+              <td>目前最新為 <code>--v 6</code></td>
             </tr>
             <tr>
               <td><code>--s</code></td>
-              <td>Stylize（風格化）</td>
+              <td>風格化</td>
               <td>0 ~ 1000</td>
-              <td>控制 Midjourney 的藝術干預程度，數值越高藝術感越強，預設 100</td>
+              <td>數值越高藝術感越強，預設 100</td>
             </tr>
             <tr>
               <td><code>--c</code></td>
-              <td>Chaos（混亂度）</td>
+              <td>混亂度</td>
               <td>0 ~ 100</td>
-              <td>控制圖像的多樣性，數值越高生成的變化越大，預設 0</td>
+              <td>數值越高生成的變化越大，預設 0</td>
             </tr>
             <tr>
               <td><code>--iw</code></td>
-              <td>Image Weight（圖片權重）</td>
+              <td>圖片權重</td>
               <td>0.5 ~ 2</td>
-              <td>使用垫圖（Image Prompt）時，控制參考圖片的影響力</td>
+              <td>垫圖時控制參考圖片的影響力</td>
             </tr>
             <tr>
               <td><code>--no</code></td>
-              <td>Negative Prompt（排除）</td>
+              <td>排除</td>
               <td>文字</td>
-              <td>排除不希望出現的元素，如 <code>--no trees</code> 排除樹木</td>
+              <td>排除不想要元素，如 <code>--no trees</code></td>
             </tr>
             <tr>
               <td><code>--q</code></td>
-              <td>Quality（品質）</td>
+              <td>品質</td>
               <td>0.25 / 0.5 / 1</td>
-              <td>渲染品質，1 為最高，較低數值可加快生成速度</td>
+              <td>1 為最高，較低數值可加快生成</td>
             </tr>
             <tr>
               <td><code>--style</code></td>
-              <td>Style Preset（風格預設）</td>
+              <td>風格預設</td>
               <td>raw / expressive</td>
-              <td><code>--style raw</code> 減少 Midjourney 的預設美學干預，適合寫實需求</td>
+              <td><code>--style raw</code> 減少預設美學干預</td>
             </tr>
             <tr>
               <td><code>--tile</code></td>
-              <td>Tiling（無縫拼接）</td>
+              <td>無縫拼接</td>
               <td>—</td>
-              <td>生成可無縫拼接的紋理圖案，適合背景與材質設計</td>
+              <td>生成可無縫拼接的紋理圖案</td>
             </tr>
           </tbody>
         </table>
-        <p>建議初學者先從 <code>--ar</code>、<code>--v</code>、<code>--s</code> 這三個參數開始練習，熟悉後再逐步嘗試其他參數組合。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 建議：</strong>初學者先從 <code>--ar</code>、<code>--v</code>、<code>--s</code> 開始練習，熟悉後再嘗試其他參數。</p>
+        </div>
 
         <h2 id="examples">中文提示詞範例</h2>
-        <p>以下提供 12 組不同主題的中文提示詞範例，涵蓋各類場景與風格：</p>
+        <p>以下提供 12 組不同主題的中文提示詞範例：</p>
 
-        <h3 id="ex-1">1. 奇幻場景</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 漂浮在雲端的魔法城堡, 夢幻風格, 金色陽光穿透雲層, 彩虹瀑布, 奇幻氛圍 --ar 16:9 --v 6 --s 250</code></pre>
-
-        <h3 id="ex-2">2. 寫實人像</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 一位亞洲女性, 自然光, 精緻五官, 溫暖笑容, 淺景深, 街頭攝影風格, 寫實照片 --ar 3:4 --v 6 --style raw</code></pre>
-
-        <h3 id="ex-3">3. 賽博龐克</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 賽博龐克台北, 霓虹燈, 雨夜, 高架橋, 全息投影招牌, 強烈對比色, 電影感 --ar 16:9 --v 6 --s 400</code></pre>
-
-        <h3 id="ex-4">4. 食物攝影</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 台灣牛肉麵, 美食攝影, 俯拍, 自然光, 熱騰騰蒸氣, 香菜點綴, 木質桌面, 景深 --ar 4:3 --v 6 --s 50</code></pre>
-
-        <h3 id="ex-5">5. 動漫風格</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 日系動漫風格, 少女在櫻花樹下, 飛舞花瓣, 柔和色調, 吉卜力風格, 溫暖光線, 唯美構圖 --ar 3:4 --v 6 --s 300</code></pre>
-
-        <h3 id="ex-6">6. 產品設計</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 極簡風格藍牙耳機, 白底, 3D 渲染, 產品攝影, 光影柔和, 高細節, 商業廣告風格 --ar 1:1 --v 6 --style raw</code></pre>
-
-        <h3 id="ex-7">7. 建築設計</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 未來風格圖書館, 玻璃帷幕, 綠植牆, 自然光灑落, 幾何結構, 建築渲染, 超廣角 --ar 16:9 --v 6 --s 200</code></pre>
-
-        <h3 id="ex-8">8. 動物寫真</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 一隻北極狐, 雪地, 藍色眼睛, 毛髮細節清晰, 自然光, 野生動物攝影, 國家地理風格 --ar 4:3 --v 6 --style raw</code></pre>
-
-        <h3 id="ex-9">9. 水墨風格</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 中式水墨畫, 山水意境, 松樹, 雲霧繚繞, 飛鳥, 留白構圖, 墨色渲染, 傳統國畫風格 --ar 4:3 --v 6 --s 500</code></pre>
-
-        <h3 id="ex-10">10. 科幻機械</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 巨大機器人, 廢墟城市, 戰爭場景, 機械細節精細, 煙霧, 爆炸火光, 史詩級構圖, 電影海報風格 --ar 16:9 --v 6 --s 350</code></pre>
-
-        <h3 id="ex-11">11. 時尚插畫</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 時尚插畫, 模特穿著紅色禮服, 誇張輪廓, 大膽色彩, 藝術感, 雜誌封面風格, 高對比 --ar 3:4 --v 6 --s 400</code></pre>
-
-        <h3 id="ex-12">12. 自然風景</h3>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: 極光, 雪山湖泊, 星空倒影, 寧靜氛圍, 超廣角, 高動態範圍, 風景攝影 --ar 16:9 --v 6 --s 150</code></pre>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🏰 奇幻場景</p>
+            <p class="text-xs text-gray-500 font-mono">漂浮在雲端的魔法城堡, 夢幻風格, 金色陽光穿透雲層, 彩虹瀑布, 奇幻氛圍 --ar 16:9 --v 6 --s 250</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">👤 寫實人像</p>
+            <p class="text-xs text-gray-500 font-mono">一位亞洲女性, 自然光, 精緻五官, 溫暖笑容, 淺景深, 街頭攝影風格, 寫實照片 --ar 3:4 --v 6 --style raw</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🌃 賽博龐克</p>
+            <p class="text-xs text-gray-500 font-mono">賽博龐克台北, 霓虹燈, 雨夜, 高架橋, 全息投影招牌, 強烈對比色, 電影感 --ar 16:9 --v 6 --s 400</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🍜 食物攝影</p>
+            <p class="text-xs text-gray-500 font-mono">台灣牛肉麵, 美食攝影, 俯拍, 自然光, 熱騰騰蒸氣, 香菜點綴, 木質桌面, 景深 --ar 4:3 --v 6 --s 50</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🌸 動漫風格</p>
+            <p class="text-xs text-gray-500 font-mono">日系動漫風格, 少女在櫻花樹下, 飛舞花瓣, 柔和色調, 吉卜力風格, 溫暖光線, 唯美構圖 --ar 3:4 --v 6 --s 300</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎧 產品設計</p>
+            <p class="text-xs text-gray-500 font-mono">極簡風格藍牙耳機, 白底, 3D 渲染, 產品攝影, 光影柔和, 高細節, 商業廣告風格 --ar 1:1 --v 6 --style raw</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🏛️ 建築設計</p>
+            <p class="text-xs text-gray-500 font-mono">未來風格圖書館, 玻璃帷幕, 綠植牆, 自然光灑落, 幾何結構, 建築渲染, 超廣角 --ar 16:9 --v 6 --s 200</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🦊 動物寫真</p>
+            <p class="text-xs text-gray-500 font-mono">一隻北極狐, 雪地, 藍色眼睛, 毛髮細節清晰, 自然光, 野生動物攝影, 國家地理風格 --ar 4:3 --v 6 --style raw</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🖌️ 水墨風格</p>
+            <p class="text-xs text-gray-500 font-mono">中式水墨畫, 山水意境, 松樹, 雲霧繚繞, 飛鳥, 留白構圖, 墨色渲染, 傳統國畫風格 --ar 4:3 --v 6 --s 500</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🤖 科幻機械</p>
+            <p class="text-xs text-gray-500 font-mono">巨大機器人, 廢墟城市, 戰爭場景, 機械細節精細, 煙霧, 爆炸火光, 史詩級構圖, 電影海報風格 --ar 16:9 --v 6 --s 350</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">👗 時尚插畫</p>
+            <p class="text-xs text-gray-500 font-mono">時尚插畫, 模特穿著紅色禮服, 誇張輪廓, 大膽色彩, 藝術感, 雜誌封面風格, 高對比 --ar 3:4 --v 6 --s 400</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🏔️ 自然風景</p>
+            <p class="text-xs text-gray-500 font-mono">極光, 雪山湖泊, 星空倒影, 寧靜氛圍, 超廣角, 高動態範圍, 風景攝影 --ar 16:9 --v 6 --s 150</p>
+          </div>
+        </div>
 
         <h2 id="advanced">進階技巧</h2>
-        <p>掌握基礎後，以下三個進階技巧能大幅提升你對 Midjourney 的控制力。</p>
 
         <h3 id="advanced-image">垫圖（Image Prompt）</h3>
-        <p>垫圖是指以一張或多張現有圖片作為參考，引導 Midjourney 生成相似風格或構圖的作品。使用方法是在提示詞中貼上圖片網址：</p>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>/imagine prompt: https://example.com/reference.jpg 動漫風格少女, 水彩質感 --ar 3:4 --v 6 --iw 1.5</code></pre>
-        <p><code>--iw</code> 參數控制參考圖片的影響力，範圍 0.5 到 2，數值越高越接近原圖。你可以同時使用多張參考圖片來混和多種風格。</p>
+        <p>以現有圖片作為參考，引導 Midjourney 生成相似風格或構圖。在提示詞中貼上圖片網址即可：</p>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <p class="text-sm font-mono text-gray-700 whitespace-pre-wrap">/imagine prompt: https://example.com/reference.jpg 動漫風格少女, 水彩質感 --ar 3:4 --v 6 --iw 1.5</p>
+        </div>
+        <p><code>--iw</code> 參數控制參考圖片的影響力（0.5 ~ 2），數值越高越接近原圖。可同時使用多張參考圖片混和多種風格。</p>
 
         <h3 id="advanced-blend">混合（Blend）</h3>
-        <p>Blend 功能可將多張圖片的元素融合生成全新的圖像，無需撰寫提示詞。操作方式：</p>
-        <ol>
-          <li>在 Discord 輸入 <code>/blend</code> 指令。</li>
-          <li>上傳 2 到 5 張圖片。</li>
-          <li>選擇尺寸（Square / Portrait / Landscape）。</li>
-          <li>按下 Enter 即可生成混合結果。</li>
-        </ol>
-        <p>混合功能適合快速融合風格、合成概念設計，或將不同素材組合成新的靈感圖。</p>
+        <p>將多張圖片的元素融合生成全新圖像，無需撰寫提示詞。輸入 <code>/blend</code> 指令，上傳 2 ~ 5 張圖片，選擇尺寸即可。</p>
 
         <h3 id="advanced-edit">修圖（Vary / Inpainting）</h3>
-        <p>Midjourney V6 提供更強大的局部修改能力。在生成圖片後，你可以使用以下方式進行細部調整：</p>
-        <ul>
-          <li><strong>Vary (Subtle)</strong>：對圖片進行細微調整，保留整體構圖，適合小幅度修改。</li>
-          <li><strong>Vary (Strong)</strong>：較大幅度的變更，適合探索不同版本。</li>
-          <li><strong>Zoom Out</strong>：將鏡頭拉遠，擴展畫面內容。</li>
-          <li><strong>Pan</strong>：往指定方向平移視角，適合延伸場景。</li>
-          <li><strong>Inpainting</strong>（V6 新功能）：選取特定區域重新生成，可精確修改圖片的特定部分，例如改變人物表情、更換背景物件等。</li>
+        <p>V6 提供強大的局部修改能力。生成圖片後可使用以下方式調整：</p>
+        <ul class="space-y-1">
+          <li><strong>Vary (Subtle)</strong> — 細微調整，保留整體構圖</li>
+          <li><strong>Vary (Strong)</strong> — 較大幅度變更，探索不同版本</li>
+          <li><strong>Zoom Out</strong> — 拉遠鏡頭，擴展畫面</li>
+          <li><strong>Pan</strong> — 往指定方向平移視角</li>
+          <li><strong>Inpainting</strong> — 選取特定區域重新生成，精確修改部分內容</li>
         </ul>
-        <p>要使用 Inpainting，點選 <code>Vary (Region)</code> 按鈕，然後使用滑鼠選取要修改的區域，輸入新的提示詞即可。</p>
 
         <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
 
         <h2 id="vs-others">Midjourney vs DALL-E vs Stable Diffusion</h2>
-        <p>目前市面上三大主流 AI 繪圖工具各有優劣，以下從多個面向進行比較：</p>
+
         <table>
           <thead>
             <tr>
@@ -387,83 +429,79 @@
           </thead>
           <tbody>
             <tr>
-              <td>開發商</td>
-              <td>Midjourney, Inc.</td>
-              <td>OpenAI</td>
-              <td>Stability AI（開源社群）</td>
-            </tr>
-            <tr>
               <td>使用平台</td>
-              <td><strong>Discord 機器人</strong></td>
+              <td>Discord 機器人</td>
               <td>網頁 / ChatGPT Plus</td>
-              <td>本地 / 網頁 / 第三方平台</td>
+              <td>本地 / 網頁 / 第三方</td>
             </tr>
             <tr>
               <td>藝術美感</td>
-              <td><strong>頂尖</strong>（風格最突出）</td>
+              <td><strong>頂尖</strong></td>
               <td>優秀</td>
-              <td>依賴模型與設定</td>
+              <td>依模型而定</td>
             </tr>
             <tr>
               <td>文字理解</td>
               <td>良好</td>
-              <td><strong>最佳</strong>（對複雜提示詞理解最精準）</td>
+              <td><strong>最佳</strong></td>
               <td>中等</td>
             </tr>
             <tr>
               <td>自訂性</td>
-              <td>中等（有限參數）</td>
-              <td>低（參數較少）</td>
-              <td><strong>最高</strong>（完全開源可自訂）</td>
+              <td>中等</td>
+              <td>低</td>
+              <td><strong>最高</strong></td>
             </tr>
             <tr>
               <td>本地部署</td>
               <td>✗</td>
               <td>✗</td>
-              <td><strong>✓</strong>（可完全離線使用）</td>
+              <td><strong>✓</strong></td>
             </tr>
             <tr>
               <td>最低月費</td>
-              <td>$10 USD</td>
-              <td>$20 USD（ChatGPT Plus）</td>
-              <td>免費（開源）</td>
-            </tr>
-            <tr>
-              <td>生成速度</td>
-              <td>中等（30-60 秒）</td>
-              <td>快（5-15 秒）</td>
-              <td>依硬體而定（GPU）</td>
-            </tr>
-            <tr>
-              <td>商業授權</td>
-              <td>部分方案可用</td>
-              <td>可用</td>
-              <td>開源授權</td>
+              <td>$10</td>
+              <td>$20</td>
+              <td>免費</td>
             </tr>
           </tbody>
         </table>
-        <blockquote>總結：如果你追求藝術美感與風格化輸出，Midjourney 是最佳選擇。若需要精準的文字理解與快速生成，DALL-E 3 更合適。而如果你需要完全自訂模型或離線部署，Stable Diffusion 則是不二之選。</blockquote>
 
-        <h2 id="faq">常見問題（FAQ）</h2>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>✅ 總結：</strong>追求藝術美感選 Midjourney，需要精準文字理解選 DALL-E 3，需要完全自訂或離線部署選 Stable Diffusion。</p>
+        </div>
 
-        <h3 id="faq-1">Midjourney 有免費試用嗎？</h3>
-        <p>Midjourney 目前提供新用戶約 25 次免費生成的額度，可在新手頻道中體驗基本功能。免費額度用完後即需訂閱付費方案才能繼續使用。</p>
+        <h2 id="faq">常見問題 FAQ</h2>
 
-        <h3 id="faq-2">生成的圖片可以商用嗎？</h3>
-        <p>可以。Midjourney 的付費方案（Standard 以上）授予使用者生成的圖像完整的商業使用權利。Free Trial 期間生成的圖片則僅限非商業使用。詳細條款請參考 Midjourney 官方服務條款。</p>
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Midjourney 有免費試用嗎？</p>
+            <p class="text-sm text-gray-600">新用戶約 25 次免費生成額度，可在新手頻道體驗。用完後需訂閱付費方案。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">生成的圖片可以商用嗎？</p>
+            <p class="text-sm text-gray-600">Standard 以上方案享有完整商業使用權利。免費試用期圖片僅限非商業使用。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">如何提升圖片解析度？</p>
+            <p class="text-sm text-gray-600">先使用 Upscale（U1-U4）放大，再點「Upscale to Max」獲得 2 倍解析度。也可用 Topaz Gigapixel 等工具。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">如何保持一致的風格或角色？</p>
+            <p class="text-sm text-gray-600">使用相同 <code>--s</code> 與 <code>--v</code> 參數、用 <code>--seed</code> 鎖定隨機種子、使用垫圖提供參考圖片。</p>
+          </div>
+        </div>
 
-        <h3 id="faq-3">為什麼我的中文提示詞效果不好？</h3>
-        <p>Midjourney 的訓練資料以英文為主，對中文的理解力不如英文。建議採取以下策略：將主要描述詞翻譯為英文，保留中文的細節修飾；或使用中英混合提示詞。例如「一隻 cat, 水彩風格, 柔和光線」會比全中文效果更好。</p>
-
-        <h3 id="faq-4">如何提升圖片的解析度？</h3>
-        <p>Midjourney 預設輸出 1024×1024 像素。若要更高解析度，可先使用 Upscale 按鈕（U1-U4）放大，然後點選「Upscale to Max」獲得 2 倍解析度。此外也可使用外部工具如 Topaz Gigapixel 進行 AI 放大。</p>
-
-        <h3 id="faq-5">如何保留一致的風格或角色？</h3>
-        <p>目前 Midjourney 尚未提供正式的角色一致性功能，但你可以透過以下方式盡量保持風格一致：使用相同的 <code>--s</code> 與 <code>--v</code> 參數；使用「Seed」參數 <code>--seed</code> 鎖定隨機種子；使用垫圖方式每次提供參考圖片。Midjourney 官方也在開發「Character Reference」功能，未來可望原生支援角色一致性。</p>
-
-        <h2 id="conclusion">結語</h2>
-        <p>Midjourney 憑藉其卓越的藝術美感與不斷迭代的功能，已成為 AI 繪圖領域的標竿工具之一。從概念發想、風格探索到成品產出，Midjourney 都能在創作流程中扮演強大的輔助角色。掌握提示詞結構、熟悉各項參數、靈活運用進階技巧，你將能夠充分發揮這款工具的潛力。</p>
-        <p>AI 繪圖技術仍在快速演進，Midjourney 的每次版本更新都帶來令人驚喜的突破。持續學習與實驗，保持對新技術的好奇心，是在這個領域成長的最佳途徑。希望這篇教學能幫助你順利踏入 AI 繪圖的世界，創作出屬於你的精彩作品！</p>
+        <h2 id="summary">總結</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ Midjourney 以 Discord 機器人運作，註冊後即可開始創作</li>
+            <li>✅ 提示詞結構：主題 + 風格 + 細節 + 參數</li>
+            <li>✅ 常用參數：<code>--ar</code>、<code>--v</code>、<code>--s</code> 是初學者的三大核心參數</li>
+            <li>✅ 進階功能：垫圖、Blend、Inpainting 能大幅提升控制力</li>
+            <li>✅ 追求藝術美感選 Midjourney，需求不同可搭配 DALL-E 或 Stable Diffusion</li>
+          </ul>
+        </div>
 
       </div>
 

@@ -131,74 +131,93 @@
 
       <div id="article-content" class="article-content">
 
+        <!-- ===== KEY TAKEAWAYS BOX ===== -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>Cursor 是基於 VS Code 的 AI 程式編輯器，保留 VS Code 所有功能與擴充套件</li>
+            <li>三大核心功能：Chat（對話）、Composer（多檔案編輯）、Ctrl+K（行內編輯）</li>
+            <li>支援多種 LLM 切換：GPT-4o、Claude 3.5 Sonnet、Claude 4 等</li>
+            <li>免費版每月 2,000 次補全，Pro 版 $20/月無限制使用</li>
+          </ul>
+        </div>
+
         <h2 id="intro">什麼是 Cursor？</h2>
-        <p>Cursor 是一款以 AI 為核心驅動的程式碼編輯器，基於 VS Code（Visual Studio Code）的分支開發，保留了 VS Code 的所有功能與擴充生態系，同時深度融合了 AI 輔助程式設計能力。簡單來說：Cursor 就是將 ChatGPT / Claude 的程式碼能力直接內建到編輯器中。</p>
-        <p>由 Anysphere 公司開發的 Cursor，在 2025-2026 年間迅速崛起，成為開發者社群中最受歡迎的 AI 程式碼編輯器之一。其最大特色是將大型語言模型（LLM）無縫整合到開發流程中，讓開發者不需切換視窗即可完成程式碼生成、修改、除錯與重構。</p>
+        <p>Cursor 是一款以 AI 為核心的程式碼編輯器，基於 VS Code 分支開發。它保留了 VS Code 的所有功能與擴充生態系，同時深度融合了 AI 輔助程式設計能力。</p>
+        <p>由 Anysphere 開發，Cursor 在 2025-2026 年間迅速崛起，成為開發者社群中最受歡迎的 AI 編輯器之一。最大特色是將大型語言模型無縫整合到開發流程中。</p>
 
         <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
 
         <h2 id="installation">安裝與設定</h2>
 
         <h3 id="download">下載安裝</h3>
-        <p>前往 Cursor 官方網站（cursor.com）即可免費下載，支援以下平台：</p>
-        <ul>
-          <li><strong>Windows</strong> — 下載 .exe 安裝檔，雙擊安裝即可</li>
-          <li><strong>macOS</strong> — 下載 .dmg 檔案，支援 Apple Silicon（M 系列）與 Intel 晶片</li>
-          <li><strong>Linux</strong> — 提供 .AppImage / .deb / .rpm 等多種格式</li>
+        <p>前往 Cursor 官網（cursor.com）免費下載，支援三大平台：</p>
+        <ul class="space-y-1">
+          <li><strong>Windows</strong> — 下載 .exe 安裝檔，雙擊安裝</li>
+          <li><strong>macOS</strong> — 下載 .dmg，支援 Apple Silicon 與 Intel</li>
+          <li><strong>Linux</strong> — 提供 .AppImage / .deb / .rpm 格式</li>
         </ul>
 
         <h3 id="import-vscode">匯入 VS Code 設定</h3>
-        <p>由於 Cursor 基於 VS Code，安裝後可直接匯入 VS Code 的設定、擴充套件與快捷鍵：</p>
-        <ol>
-          <li>開啟 Cursor，首次啟動會詢問是否從 VS Code 匯入設定。</li>
-          <li>選擇「Import from VS Code」，所有擴充套件、settings.json、快捷鍵將自動同步。</li>
-          <li>若已有 Cursor 專屬設定，可在設定頁面中調整 AI 相關選項。</li>
+        <p>Cursor 基於 VS Code，安裝後可直接匯入 VS Code 的設定、擴充套件與快捷鍵：</p>
+        <ol class="space-y-1">
+          <li>首次啟動時選擇「Import from VS Code」</li>
+          <li>所有擴充套件、settings.json、快捷鍵自動同步</li>
+          <li>可在設定頁面調整 AI 相關選項</li>
         </ol>
-        <blockquote>提示：大部分 VS Code 擴充套件在 Cursor 上可直接使用，無需重新安裝。</blockquote>
 
-        <h3 id="account">註冊帳號與 AI 金鑰</h3>
-        <p>Cursor 預設使用 Cursor 自有模型服務，註冊帳號後即可獲得免費額度。若想使用自己的 API Key（例如 GPT-4 或 Claude API），可在 Settings > Models 中設定。</p>
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 提示：</strong>大部分 VS Code 擴充套件在 Cursor 上可直接使用，無需重新安裝。</p>
+        </div>
+
+        <h3 id="account">註冊帳號</h3>
+        <p>Cursor 預設使用自有模型服務，註冊帳號後即可獲得免費額度。若想使用自己的 API Key（如 GPT-4 或 Claude），可在 Settings > Models 中設定。</p>
 
         <h2 id="features">核心功能</h2>
 
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💬 Chat</p>
+            <p class="text-sm text-gray-600">按下 <code>Ctrl+I</code> 開啟 AI 對話面板，能自動感知當前檔案內容與選取的程式碼。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📂 Composer</p>
+            <p class="text-sm text-gray-600">按下 <code>Ctrl+Shift+I</code> 開啟，可同時編輯或建立多個檔案。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">✏️ Ctrl+K</p>
+            <p class="text-sm text-gray-600">選取程式碼後按下 <code>Ctrl+K</code>，直接在編輯器內修改選取內容。</p>
+          </div>
+        </div>
+
         <h3 id="chat">Chat — AI 對話面板</h3>
-        <p>按下 <code>Ctrl+I</code>（Mac：<code>Cmd+I</code>）即可在側邊欄開啟 AI 對話面板。你可以像是在 ChatGPT 中一樣直接提問，但不同的是 Chat 能自動感知你當前開啟的檔案內容、選取的程式碼片段與專案結構。</p>
-        <p>適用場景：</p>
-        <ul>
-          <li>詢問程式碼片段的功能或用途</li>
-          <li>請求解釋陌生語法或演算法</li>
-          <li>取得單元測試範例</li>
-          <li>討論架構設計方案</li>
-        </ul>
+        <p>按下 <code>Ctrl+I</code>（Mac：<code>Cmd+I</code>）開啟側邊欄 AI 對話。Chat 能自動感知你當前的檔案內容、選取片段與專案結構。</p>
+        <p>適用場景：詢問程式碼功能、解釋陌生語法、取得測試範例、討論架構設計。</p>
 
         <h3 id="composer">Composer — 多檔案編輯模式</h3>
-        <p>Composer 是 Cursor 最強大的功能之一，允許 AI 同時編輯或建立多個檔案。按下 <code>Ctrl+Shift+I</code>（Mac：<code>Cmd+Shift+I</code>）即可開啟 Composer 面板。</p>
-        <p>你能直接對 Composer 下達需求，例如「建立一個 React Todo List 元件，包含新增、刪除與完成切換功能，並建立對應的 CSS 檔案」，Composer 會自動在專案中建立或修改多個檔案。</p>
-        <blockquote>進階技巧：Composer 支援將專案文件作為上下文，讓 AI 理解整個專案結構後再進行修改。</blockquote>
+        <p>Composer 是 Cursor 最強大的功能，允許 AI 同時編輯或建立多個檔案。按下 <code>Ctrl+Shift+I</code>（Mac：<code>Cmd+Shift+I</code>）開啟。</p>
+        <p>你可以直接下達需求，例如「建立一個 React Todo List 元件，包含新增、刪除與完成切換功能」，Composer 會自動建立或修改多個檔案。</p>
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>✅ 進階技巧：</strong>Composer 支援將專案文件作為上下文，讓 AI 理解整個專案結構後再修改。</p>
+        </div>
 
         <h3 id="ctrl-k">Ctrl+K — 行內編輯</h3>
-        <p>在編輯器中選取一段程式碼後按下 <code>Ctrl+K</code>（Mac：<code>Cmd+K</code>），即可直接對選取內容下達編輯指令。這是最常使用的功能之一，無需離開鍵盤即可完成程式碼修改。</p>
-        <p>常用指令範例：</p>
-        <ul>
+        <p>選取程式碼後按下 <code>Ctrl+K</code>（Mac：<code>Cmd+K</code>），直接對選取內容下達編輯指令。這是最高頻使用的功能。</p>
+        <ul class="space-y-1">
           <li>「Refactor this function to use async/await」</li>
           <li>「Add error handling」</li>
-          <li>「Translate comments to English」</li>
           <li>「Optimize for performance」</li>
         </ul>
 
         <h3 id="autocomplete">AI 程式碼補全</h3>
-        <p>Cursor 的 AI 補全功能類似 GitHub Copilot，在你輸入程式碼時會自動建議下一段內容。但 Cursor 的補全更加積極，甚至能一次預測多行或整個函式。所有建議以灰色文字顯示，按下 <code>Tab</code> 即可接受。</p>
-        <p>特色差異：</p>
-        <ul>
-          <li>跨檔案感知：補全建議基於整個專案上下文</li>
-          <li>支援多種模型切換：可選擇不同 LLM 作為補全引擎</li>
-          <li>即時反射：修改檔案後 AI 補全會立即調整建議</li>
-        </ul>
+        <p>類似 GitHub Copilot，在你輸入程式碼時自動建議下一段內容。Cursor 的補全更積極，能一次預測多行或整個函式。按下 <code>Tab</code> 接受建議。</p>
 
         <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
 
         <h2 id="supported-llm">支援的 LLM 模型</h2>
-        <p>Cursor 的一大優勢是可自由切換底層 AI 模型，開發者可針對不同任務選擇最適合的模型：</p>
+        <p>Cursor 可自由切換底層 AI 模型，針對不同任務選擇最適合的模型：</p>
+
         <table>
           <thead>
             <tr>
@@ -247,10 +266,13 @@
             </tr>
           </tbody>
         </table>
-        <p>免費版用戶可使用 Cursor 自有模型及有限次數的 GPT-4o 和 Claude 3.5。Pro 版則提供更高用量與更多模型選擇。</p>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 注意：</strong>免費版可使用 Cursor 自有模型及有限次數的 GPT-4o 和 Claude 3.5。Pro 版提供更高用量與更多模型選擇。</p>
+        </div>
 
         <h2 id="pricing">免費版 vs Pro 版</h2>
-        <p>Cursor 提供免費方案與 Pro 訂閱方案，以下是最新比較：</p>
+
         <table>
           <thead>
             <tr>
@@ -271,12 +293,12 @@
               <td>無限制</td>
             </tr>
             <tr>
-              <td>高級模型（GPT-4 / Claude）</td>
+              <td>高級模型</td>
               <td>每月 50 次</td>
               <td>每月 500 次</td>
             </tr>
             <tr>
-              <td>Composer 使用</td>
+              <td>Composer</td>
               <td>有限制</td>
               <td>無限制</td>
             </tr>
@@ -285,53 +307,59 @@
               <td>✓</td>
               <td>✓</td>
             </tr>
-            <tr>
-              <td>優先支援</td>
-              <td>—</td>
-              <td>✓</td>
-            </tr>
           </tbody>
         </table>
+
         <p>👉 <a href="https://cursor.com/pricing" target="_blank" rel="nofollow sponsored" class="text-indigo-500 font-semibold hover:underline">前往 Cursor 官網訂閱 Pro 方案（含聯盟連結）</a></p>
 
         <h2 id="examples">實戰範例</h2>
 
-        <h3 id="example-react">範例一：快速建立 React 元件</h3>
-        <p>使用 Composer 輸入以下提示詞，立即生成完整的 React 元件：</p>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>Create a React component called "PricingCard" that:
-1. Accepts title, price, features (array), and ctaText as props
-2. Displays a pricing plan with a featured/highlighted variant
-3. Includes Tailwind CSS classes for styling
-4. Has proper TypeScript types
-5. Export as default
-
-Create the component in src/components/PricingCard.tsx</code></pre>
-        <p>Composer 會自動建立檔案並填入完整的元件程式碼，包含 TypeScript 型別定義與 Tailwind CSS 樣式。</p>
-
-        <h3 id="example-refactor">範例二：重構 Legacy 程式碼</h3>
-        <p>選取一段舊有的 callback 風格程式碼，按下 <code>Ctrl+K</code> 並輸入：</p>
-        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>Rewrite this using async/await, add proper TypeScript types, and split into smaller functions</code></pre>
-        <p>Cursor 會直接在編輯器中修改選取的程式碼，並保留原有邏輯。</p>
-
-        <h3 id="example-debug">範例三：AI 輔助除錯</h3>
-        <p>在 Chat 中貼上錯誤訊息並告訴 AI 你當前的程式碼邏輯，Chat 會根據錯誤訊息和你的程式碼提供具體的修復建議，並可直接「Apply」到編輯器中。</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">⚛️ 快速建立 React 元件</p>
+            <p class="text-sm text-gray-600">用 Composer 輸入提示詞，立即生成完整的 React 元件，含 TypeScript 型別與 Tailwind 樣式。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🔄 重構 Legacy 程式碼</p>
+            <p class="text-sm text-gray-600">選取舊程式碼，按下 <code>Ctrl+K</code> 輸入重構指令，如「Rewrite using async/await」。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🐛 AI 輔助除錯</p>
+            <p class="text-sm text-gray-600">在 Chat 貼上錯誤訊息，AI 根據錯誤與程式碼提供修復建議，可直接 Apply 到編輯器。</p>
+          </div>
+        </div>
 
         <h2 id="faq">常見問題 FAQ</h2>
 
-        <h3 id="faq1">Cursor 與 VS Code 有什麼不同？</h3>
-        <p>Cursor 基於 VS Code 原始碼，因此保留了 VS Code 的所有功能與擴充套件生態系。最大的差異在於 Cursor 深度整合了 AI 功能，如 Chat、Composer、Ctrl+K 和 AI 補全。你可以將 Cursor 視為「內建 AI 助手的 VS Code」。</p>
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Cursor 與 VS Code 有什麼不同？</p>
+            <p class="text-sm text-gray-600">Cursor 基於 VS Code，保留所有功能與擴充套件。最大差異在於深度整合 AI 功能，可視為「內建 AI 助手的 VS Code」。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Cursor 免費版夠用嗎？</p>
+            <p class="text-sm text-gray-600">每月 2,000 次補全與 500 次 Chat 訊息，輕中度開發者夠用。大量使用建議升級 Pro（$20/月）。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">可以用自己的 API Key 嗎？</p>
+            <p class="text-sm text-gray-600">可以。在 Settings > Models 中輸入自己的 OpenAI 或 Anthropic API Key，使用量不計入免費配額。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">VS Code 擴充套件能繼續用嗎？</p>
+            <p class="text-sm text-gray-600">絕大多數可以，包括 ESLint、Prettier、GitLens 等。少數依賴 VS Code 專有 API 的可能無法運作。</p>
+          </div>
+        </div>
 
-        <h3 id="faq2">Cursor 是免費的嗎？</h3>
-        <p>Cursor 提供免費方案，包含每月 2,000 次 AI 補全與 500 次 Chat 訊息。若需無限制使用與高級模型配額，則需要升級至 Pro 方案（每月 $20 美元）。</p>
-
-        <h3 id="faq3">可以用自己的 API Key 嗎？</h3>
-        <p>可以。在 Cursor Settings > Models 中，你可以輸入自己的 OpenAI API Key、Anthropic API Key 或其他支援的 LLM 服務金鑰。自備 Key 的使用量不會計入 Cursor 的免費配額。</p>
-
-        <h3 id="faq4">現有的 VS Code 擴充套件能繼續使用嗎？</h3>
-        <p>絕大多數 VS Code 擴充套件在 Cursor 上可直接使用，包括 ESLint、Prettier、GitLens、Thunder Client 等。少數依賴 VS Code 專有 API 的擴充套件可能無法正常運作，但整體相容性極高。</p>
-
-        <h3 id="faq5">Cursor 支援哪些程式語言？</h3>
-        <p>Cursor 支援所有 VS Code 支援的程式語言，包括但不限於：JavaScript、TypeScript、Python、Java、Go、Rust、C/C++、Ruby、PHP、Swift、Kotlin 等。AI 功能對主流語言（JS/TS/Python/Go/Rust）的支援最佳。</p>
+        <h2 id="summary">總結</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ Cursor 是 VS Code 的超集，無痛遷移，學習成本極低</li>
+            <li>✅ Chat、Composer、Ctrl+K 三大功能涵蓋所有 AI 輔助場景</li>
+            <li>✅ 支援 GPT-4o、Claude 多模型切換，彈性大</li>
+            <li>✅ 免費版已足夠日常開發，Pro 版適合重度使用者</li>
+            <li>✅ 自備 API Key 可繞過用量限制，靈活度更高</li>
+          </ul>
+        </div>
 
       </div>
 
