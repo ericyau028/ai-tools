@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Perplexity AI 繁體中文完整教學 — AI 搜尋引擎使用指南，涵蓋免費版與 Pro 版比較、核心功能、使用技巧與常見問題。">
+  <meta name="keywords" content="Perplexity AI, AI 搜尋引擎, Perplexity 教學, AI 搜尋, 附來源搜尋, Perplexity Pro, 焦點搜尋">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Perplexity AI 繁體中文教學｜AI 搜尋引擎完整指南 — AI 工具導航站">
+  <meta property="og:description" content="Perplexity AI 完整教學：了解 AI 搜尋引擎如何運作、免費版與 Pro 版比較、核心搜尋功能與使用技巧。">
+  <meta property="og:type" content="article">
+  <title>Perplexity AI 繁體中文教學｜AI 搜尋引擎完整指南 — AI 工具導航站</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Perplexity AI 繁體中文教學｜AI 搜尋引擎完整指南",
+    "description": "Perplexity AI 完整教學：了解 AI 搜尋引擎如何運作、免費版與 Pro 版比較、核心搜尋功能與使用技巧。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-07-24",
+    "dateModified": "2026-07-24",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/perplexity-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/perplexity-guide.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="../articles/perplexity-guide.html" class="nav-link active">Perplexity 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="../articles/perplexity-guide.html" class="nav-link active">Perplexity 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">Perplexity AI 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">Perplexity AI 繁體中文教學｜AI 搜尋引擎完整指南</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-07-24
+          </span>
+          <span>·</span>
+          <span>約 8 分鐘閱讀</span>
+          <span class="badge badge-blue">Perplexity</span>
+          <span class="badge badge-purple">AI 搜尋</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <h2 id="intro">什麼是 Perplexity AI？</h2>
+        <p>Perplexity AI 是一款以 AI 驅動的搜尋引擎，與傳統搜尋引擎最大的不同在於：它會直接以自然語言回答你的問題，並在回答中標註資訊來源。換句話說，Perplexity 結合了大型語言模型的理解能力與即時網路搜尋，提供附有參考來源的完整答案。</p>
+        <p>由 Aravind Srinivas 等人於 2022 年創立，Perplexity AI 在 2025-2026 年間迅速成長，被譽為「Google 搜尋的AI 替代方案」。其核心優勢在於：不讓用戶在數十個藍色連結中自行篩選，而是直接提供濃縮後的答案，並附上原文連結供驗證。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
+
+        <h2 id="pricing">免費版 vs Pro 版</h2>
+        <p>Perplexity 提供免費與付費兩種方案，以下是完整比較：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>功能</th>
+              <th>免費版</th>
+              <th>Pro 版（$20/月）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>搜尋次數</td>
+              <td>每日有限次數</td>
+              <td>無限制</td>
+            </tr>
+            <tr>
+              <td>AI 模型</td>
+              <td>Perplexity 自有模型</td>
+              <td>GPT-4 / Claude / Sonar 多模型切換</td>
+            </tr>
+            <tr>
+              <td>檔案上傳分析</td>
+              <td>—</td>
+              <td>✓（PDF、圖片、CSV 等）</td>
+            </tr>
+            <tr>
+              <td>焦點搜尋</td>
+              <td>基本</td>
+              <td>進階（含學術、Reddit、Wolfram 等）</td>
+            </tr>
+            <tr>
+              <td>收藏集（Collections）</td>
+              <td>有限數量</td>
+              <td>無限制</td>
+            </tr>
+            <tr>
+              <td>優先使用權</td>
+              <td>—</td>
+              <td>✓（流量尖峰時優先回應）</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>👉 <a href="https://www.perplexity.ai/pro" target="_blank" rel="nofollow sponsored" class="text-indigo-500 font-semibold hover:underline">升級 Perplexity Pro（含聯盟連結）</a></p>
+
+        <h2 id="features">核心功能</h2>
+
+        <h3 id="search">AI 搜尋</h3>
+        <p>Perplexity 的核心功能即是 AI 搜尋。在搜尋框中輸入問題後，系統會：</p>
+        <ol>
+          <li>解析你的提問意圖</li>
+          <li>自動檢索網路上的相關資訊</li>
+          <li>綜合多個來源生成結構化的回答</li>
+          <li>在回答中標註引用來源（數字標記）</li>
+          <li>在右側顯示參考來源列表</li>
+        </ol>
+        <p>使用者可以點擊來源編號直接查看原文，確保資訊可追溯、可驗證。</p>
+
+        <h3 id="focus">焦點搜尋（Focus）</h3>
+        <p>Perplexity 的焦點功能可將搜尋範圍限制在特定類型的來源中：</p>
+        <ul>
+          <li><strong>All</strong> — 搜尋整個網路</li>
+          <li><strong>Academic</strong> — 限於學術論文與研究文獻</li>
+          <li><strong>Writing</strong> — 以 AI 寫作為主的回應模式</li>
+          <li><strong>Math</strong> — 啟用 Wolfram Alpha 進行數學計算</li>
+          <li><strong>Video</strong> — 搜尋影片內容</li>
+          <li><strong>Social</strong> — 搜尋社群媒體內容（如 Reddit、X/Twitter）</li>
+          <li><strong>News</strong> — 限於新聞來源</li>
+        </ul>
+        <blockquote>提示：學術研究時建議切換至 Academic 焦點，結果會以論文為主要來源，適合文獻回顧。</blockquote>
+
+        <h3 id="collections">收藏集（Collections）</h3>
+        <p>收藏集功能可將相關的搜尋與對話組織在一起，類似於專案資料夾的概念。例如你可以建立「市場研究」、「程式開發筆記」、「健康飲食」等不同收藏集，每個收藏集內的所有問答都會獨立保存，方便日後回顧與整理。</p>
+        <p>收藏集支援：</p>
+        <ul>
+          <li>命名與自訂圖示</li>
+          <li>分享收藏集給他人</li>
+          <li>跨裝置同步（需登入帳號）</li>
+        </ul>
+
+        <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
+
+        <h2 id="vs-google">與 Google 搜尋的差異</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>比較項目</th>
+              <th>Google 搜尋</th>
+              <th>Perplexity AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>輸出形式</td>
+              <td>連結列表（藍色連結）</td>
+              <td>自然語言答案 + 來源標註</td>
+            </tr>
+            <tr>
+              <td>資訊整合</td>
+              <td>需自行比對多個網站</td>
+              <td>AI 自動整合摘要</td>
+            </tr>
+            <tr>
+              <td>來源透明度</td>
+              <td>顯示網址與標題</td>
+              <td>行內數字標記 + 參考來源面板</td>
+            </tr>
+            <tr>
+              <td>追問能力</td>
+              <td>需重新搜尋</td>
+              <td>支援對話式追問（Context 保留）</td>
+            </tr>
+            <tr>
+              <td>即時性</td>
+              <td>即時</td>
+              <td>即時（Pro 版優先）</td>
+            </tr>
+            <tr>
+              <td>廣告干擾</td>
+              <td>大量廣告與 SEO 內容</td>
+              <td>無廣告（目前）</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>總結：Google 擅長「給你找到資訊的管道」，而 Perplexity 擅長「直接給你答案」。兩者並非完全替代關係，但對於需要快速獲取整理後資訊的場景，Perplexity 的效率明顯更高。</p>
+
+        <h2 id="tips">使用技巧</h2>
+
+        <h3 id="tip-query">精準提問技巧</h3>
+        <p>Perplexity 對結構化提問的回應品質更高。建議包含以下元素：</p>
+        <ul>
+          <li>明確的問題範圍（時間、地區、類別）</li>
+          <li>指定輸出格式（條列式、表格、段落）</li>
+          <li>提供背景資訊（例如「我是初學者」）</li>
+        </ul>
+        <p>範例：</p>
+        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>❌ 不好的提問：「告訴我關於機器學習」
+✅ 好的提問：「請用條列式說明 2026 年機器學習在醫療領域的三個主要應用趨勢，附上資料來源」</code></pre>
+
+        <h3 id="tip-followup">善用追問</h3>
+        <p>Perplexity 會保留對話上下文，你可以在同一對話中持續追問，而不需要重新描述問題。例如：</p>
+        <ul>
+          <li>第一次提問：「台灣 2025 年 GDP 成長率是多少？」</li>
+          <li>追問：「那 2026 年的預測呢？」</li>
+          <li>再追問：「這些預測的主要風險因素是什麼？」</li>
+        </ul>
+
+        <h3 id="tip-source">驗證來源</h3>
+        <p>雖然 Perplexity 提供來源標註，但建議仍點擊來源連結進行驗證，尤其是處理重要決策資訊時。AI 在摘要過程中仍有機率產生「幻覺」（Hallucination），來源驗證是最有效的防範方式。</p>
+
+        <h3 id="tip-library">使用 Library 整理研究</h3>
+        <p>Perplexity 的 Library 功能可自動儲存你的搜尋紀錄。定期整理收藏集，將相關主題的研究彙整在一起，可以打造屬於自己的知識庫。</p>
+
+        <h2 id="faq">常見問題 FAQ</h2>
+
+        <h3 id="faq1">Perplexity 與 ChatGPT 有什麼不同？</h3>
+        <p>ChatGPT 是一個通用對話 AI，它的知識有截止日期（雖然可透過瀏覽插件存取網路），而 Perplexity 從設計上就是一個「搜尋引擎」，每次回答都會即時檢索網路並標註來源。簡單說：ChatGPT 擅長生成與創作，Perplexity 擅長查找與驗證資訊。</p>
+
+        <h3 id="faq2">Perplexity 的答案可靠嗎？</h3>
+        <p>Perplexity 的答案基於即時網路搜尋並標註來源，可靠性比純 LLM 生成更高。但 AI 仍可能在摘要過程中出錯，建議對於關鍵資訊點擊來源連結進行驗證。Pro 版可使用 GPT-4 或 Claude 等高級模型，答案品質通常更佳。</p>
+
+        <h3 id="faq3）免費版有使用限制嗎？</h3>
+        <p>免費版每日有搜尋次數限制（目前約 50 次 / 天），超過後需等待次日重置。此外免費版僅能使用 Perplexity 自有模型，無法切換到 GPT-4 或 Claude。若需大量使用或高級模型，建議升級 Pro 版。</p>
+
+        <h3 id="faq4">Perplexity 支援繁體中文嗎？</h3>
+        <p>完全支援。Perplexity 的搜尋與回答支援繁體中文，只需用繁體中文提問即可獲得繁體中文回答。中文資訊的檢索能力與英文相比略為遜色，但仍屬 AI 搜尋工具中的頂尖水準。</p>
+
+        <h3 id="faq5">Perplexity 有手機 App 嗎？</h3>
+        <p>有。Perplexity 提供 iOS 與 Android 原生 App，支援語音搜尋與跨裝置同步，可在各大應用商店免費下載。手機版同樣支援 Pro 功能與收藏集同步。</p>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-blue">Perplexity</span>
+          <span class="badge badge-purple">AI 搜尋</span>
+          <span class="badge badge-green">AI 教學</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="deepseek-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Deepseek 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從入門到進階完整指南</p>
+            </div>
+          </a>
+          <a href="chatgpt-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">ChatGPT 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從基礎到進階應用指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">廣告位<br>300×250</div>
+        <div class="ad-slot" style="min-height:600px;">廣告位<br>300×600</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="perplexity-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Perplexity 教學</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">聯絡方式</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">隱私權政策</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

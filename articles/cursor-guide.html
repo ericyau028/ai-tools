@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cursor AI 繁體中文完整教學 — AI 程式編輯器入門指南，涵蓋 Chat、Composer、Ctrl+K 核心功能、安裝設定與實戰範例。">
+  <meta name="keywords" content="Cursor, AI 程式編輯器, Cursor AI 教學, AI 寫程式, Composer, VS Code 替代, GPT-4, Claude">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Cursor AI 繁體中文教學｜AI 程式編輯器入門 — AI 工具導航站">
+  <meta property="og:description" content="Cursor AI 完整教學：從安裝設定到 Chat、Composer、Ctrl+K 核心功能，免費版與 Pro 版比較，以及實戰範例。">
+  <meta property="og:type" content="article">
+  <title>Cursor AI 繁體中文教學｜AI 程式編輯器入門 — AI 工具導航站</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cursor AI 繁體中文教學｜AI 程式編輯器入門",
+    "description": "Cursor AI 完整教學：從安裝設定到 Chat、Composer、Ctrl+K 核心功能，免費版與 Pro 版比較，以及實戰範例。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-07-24",
+    "dateModified": "2026-07-24",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/cursor-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/cursor-guide.html">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="../articles/cursor-guide.html" class="nav-link active">Cursor 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="../articles/cursor-guide.html" class="nav-link active">Cursor 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">Cursor AI 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">Cursor AI 繁體中文教學｜AI 程式編輯器入門</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-07-24
+          </span>
+          <span>·</span>
+          <span>約 10 分鐘閱讀</span>
+          <span class="badge badge-blue">Cursor</span>
+          <span class="badge badge-purple">程式開發</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <h2 id="intro">什麼是 Cursor？</h2>
+        <p>Cursor 是一款以 AI 為核心驅動的程式碼編輯器，基於 VS Code（Visual Studio Code）的分支開發，保留了 VS Code 的所有功能與擴充生態系，同時深度融合了 AI 輔助程式設計能力。簡單來說：Cursor 就是將 ChatGPT / Claude 的程式碼能力直接內建到編輯器中。</p>
+        <p>由 Anysphere 公司開發的 Cursor，在 2025-2026 年間迅速崛起，成為開發者社群中最受歡迎的 AI 程式碼編輯器之一。其最大特色是將大型語言模型（LLM）無縫整合到開發流程中，讓開發者不需切換視窗即可完成程式碼生成、修改、除錯與重構。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
+
+        <h2 id="installation">安裝與設定</h2>
+
+        <h3 id="download">下載安裝</h3>
+        <p>前往 Cursor 官方網站（cursor.com）即可免費下載，支援以下平台：</p>
+        <ul>
+          <li><strong>Windows</strong> — 下載 .exe 安裝檔，雙擊安裝即可</li>
+          <li><strong>macOS</strong> — 下載 .dmg 檔案，支援 Apple Silicon（M 系列）與 Intel 晶片</li>
+          <li><strong>Linux</strong> — 提供 .AppImage / .deb / .rpm 等多種格式</li>
+        </ul>
+
+        <h3 id="import-vscode">匯入 VS Code 設定</h3>
+        <p>由於 Cursor 基於 VS Code，安裝後可直接匯入 VS Code 的設定、擴充套件與快捷鍵：</p>
+        <ol>
+          <li>開啟 Cursor，首次啟動會詢問是否從 VS Code 匯入設定。</li>
+          <li>選擇「Import from VS Code」，所有擴充套件、settings.json、快捷鍵將自動同步。</li>
+          <li>若已有 Cursor 專屬設定，可在設定頁面中調整 AI 相關選項。</li>
+        </ol>
+        <blockquote>提示：大部分 VS Code 擴充套件在 Cursor 上可直接使用，無需重新安裝。</blockquote>
+
+        <h3 id="account">註冊帳號與 AI 金鑰</h3>
+        <p>Cursor 預設使用 Cursor 自有模型服務，註冊帳號後即可獲得免費額度。若想使用自己的 API Key（例如 GPT-4 或 Claude API），可在 Settings > Models 中設定。</p>
+
+        <h2 id="features">核心功能</h2>
+
+        <h3 id="chat">Chat — AI 對話面板</h3>
+        <p>按下 <code>Ctrl+I</code>（Mac：<code>Cmd+I</code>）即可在側邊欄開啟 AI 對話面板。你可以像是在 ChatGPT 中一樣直接提問，但不同的是 Chat 能自動感知你當前開啟的檔案內容、選取的程式碼片段與專案結構。</p>
+        <p>適用場景：</p>
+        <ul>
+          <li>詢問程式碼片段的功能或用途</li>
+          <li>請求解釋陌生語法或演算法</li>
+          <li>取得單元測試範例</li>
+          <li>討論架構設計方案</li>
+        </ul>
+
+        <h3 id="composer">Composer — 多檔案編輯模式</h3>
+        <p>Composer 是 Cursor 最強大的功能之一，允許 AI 同時編輯或建立多個檔案。按下 <code>Ctrl+Shift+I</code>（Mac：<code>Cmd+Shift+I</code>）即可開啟 Composer 面板。</p>
+        <p>你能直接對 Composer 下達需求，例如「建立一個 React Todo List 元件，包含新增、刪除與完成切換功能，並建立對應的 CSS 檔案」，Composer 會自動在專案中建立或修改多個檔案。</p>
+        <blockquote>進階技巧：Composer 支援將專案文件作為上下文，讓 AI 理解整個專案結構後再進行修改。</blockquote>
+
+        <h3 id="ctrl-k">Ctrl+K — 行內編輯</h3>
+        <p>在編輯器中選取一段程式碼後按下 <code>Ctrl+K</code>（Mac：<code>Cmd+K</code>），即可直接對選取內容下達編輯指令。這是最常使用的功能之一，無需離開鍵盤即可完成程式碼修改。</p>
+        <p>常用指令範例：</p>
+        <ul>
+          <li>「Refactor this function to use async/await」</li>
+          <li>「Add error handling」</li>
+          <li>「Translate comments to English」</li>
+          <li>「Optimize for performance」</li>
+        </ul>
+
+        <h3 id="autocomplete">AI 程式碼補全</h3>
+        <p>Cursor 的 AI 補全功能類似 GitHub Copilot，在你輸入程式碼時會自動建議下一段內容。但 Cursor 的補全更加積極，甚至能一次預測多行或整個函式。所有建議以灰色文字顯示，按下 <code>Tab</code> 即可接受。</p>
+        <p>特色差異：</p>
+        <ul>
+          <li>跨檔案感知：補全建議基於整個專案上下文</li>
+          <li>支援多種模型切換：可選擇不同 LLM 作為補全引擎</li>
+          <li>即時反射：修改檔案後 AI 補全會立即調整建議</li>
+        </ul>
+
+        <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
+
+        <h2 id="supported-llm">支援的 LLM 模型</h2>
+        <p>Cursor 的一大優勢是可自由切換底層 AI 模型，開發者可針對不同任務選擇最適合的模型：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>Chat</th>
+              <th>Composer</th>
+              <th>Ctrl+K</th>
+              <th>補全</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>GPT-4o</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Claude 3.5 Sonnet</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Claude 4 (Opus)</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>Cursor Small</td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>GPT-4o-mini</td>
+              <td>✓</td>
+              <td>—</td>
+              <td>✓</td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>免費版用戶可使用 Cursor 自有模型及有限次數的 GPT-4o 和 Claude 3.5。Pro 版則提供更高用量與更多模型選擇。</p>
+
+        <h2 id="pricing">免費版 vs Pro 版</h2>
+        <p>Cursor 提供免費方案與 Pro 訂閱方案，以下是最新比較：</p>
+        <table>
+          <thead>
+            <tr>
+              <th>功能</th>
+              <th>免費版</th>
+              <th>Pro 版（$20/月）</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AI 補全次數</td>
+              <td>每月 2,000 次</td>
+              <td>無限制</td>
+            </tr>
+            <tr>
+              <td>Chat 訊息</td>
+              <td>每月 500 次</td>
+              <td>無限制</td>
+            </tr>
+            <tr>
+              <td>高級模型（GPT-4 / Claude）</td>
+              <td>每月 50 次</td>
+              <td>每月 500 次</td>
+            </tr>
+            <tr>
+              <td>Composer 使用</td>
+              <td>有限制</td>
+              <td>無限制</td>
+            </tr>
+            <tr>
+              <td>自備 API Key</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>優先支援</td>
+              <td>—</td>
+              <td>✓</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>👉 <a href="https://cursor.com/pricing" target="_blank" rel="nofollow sponsored" class="text-indigo-500 font-semibold hover:underline">前往 Cursor 官網訂閱 Pro 方案（含聯盟連結）</a></p>
+
+        <h2 id="examples">實戰範例</h2>
+
+        <h3 id="example-react">範例一：快速建立 React 元件</h3>
+        <p>使用 Composer 輸入以下提示詞，立即生成完整的 React 元件：</p>
+        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>Create a React component called "PricingCard" that:
+1. Accepts title, price, features (array), and ctaText as props
+2. Displays a pricing plan with a featured/highlighted variant
+3. Includes Tailwind CSS classes for styling
+4. Has proper TypeScript types
+5. Export as default
+
+Create the component in src/components/PricingCard.tsx</code></pre>
+        <p>Composer 會自動建立檔案並填入完整的元件程式碼，包含 TypeScript 型別定義與 Tailwind CSS 樣式。</p>
+
+        <h3 id="example-refactor">範例二：重構 Legacy 程式碼</h3>
+        <p>選取一段舊有的 callback 風格程式碼，按下 <code>Ctrl+K</code> 並輸入：</p>
+        <pre style="background:#f1f5f9;border:1px solid #e2e8f0;border-radius:8px;padding:16px;overflow-x:auto;margin:1rem 0;"><code>Rewrite this using async/await, add proper TypeScript types, and split into smaller functions</code></pre>
+        <p>Cursor 會直接在編輯器中修改選取的程式碼，並保留原有邏輯。</p>
+
+        <h3 id="example-debug">範例三：AI 輔助除錯</h3>
+        <p>在 Chat 中貼上錯誤訊息並告訴 AI 你當前的程式碼邏輯，Chat 會根據錯誤訊息和你的程式碼提供具體的修復建議，並可直接「Apply」到編輯器中。</p>
+
+        <h2 id="faq">常見問題 FAQ</h2>
+
+        <h3 id="faq1">Cursor 與 VS Code 有什麼不同？</h3>
+        <p>Cursor 基於 VS Code 原始碼，因此保留了 VS Code 的所有功能與擴充套件生態系。最大的差異在於 Cursor 深度整合了 AI 功能，如 Chat、Composer、Ctrl+K 和 AI 補全。你可以將 Cursor 視為「內建 AI 助手的 VS Code」。</p>
+
+        <h3 id="faq2">Cursor 是免費的嗎？</h3>
+        <p>Cursor 提供免費方案，包含每月 2,000 次 AI 補全與 500 次 Chat 訊息。若需無限制使用與高級模型配額，則需要升級至 Pro 方案（每月 $20 美元）。</p>
+
+        <h3 id="faq3">可以用自己的 API Key 嗎？</h3>
+        <p>可以。在 Cursor Settings > Models 中，你可以輸入自己的 OpenAI API Key、Anthropic API Key 或其他支援的 LLM 服務金鑰。自備 Key 的使用量不會計入 Cursor 的免費配額。</p>
+
+        <h3 id="faq4">現有的 VS Code 擴充套件能繼續使用嗎？</h3>
+        <p>絕大多數 VS Code 擴充套件在 Cursor 上可直接使用，包括 ESLint、Prettier、GitLens、Thunder Client 等。少數依賴 VS Code 專有 API 的擴充套件可能無法正常運作，但整體相容性極高。</p>
+
+        <h3 id="faq5">Cursor 支援哪些程式語言？</h3>
+        <p>Cursor 支援所有 VS Code 支援的程式語言，包括但不限於：JavaScript、TypeScript、Python、Java、Go、Rust、C/C++、Ruby、PHP、Swift、Kotlin 等。AI 功能對主流語言（JS/TS/Python/Go/Rust）的支援最佳。</p>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-blue">Cursor</span>
+          <span class="badge badge-purple">AI 教學</span>
+          <span class="badge badge-green">程式開發</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="deepseek-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Deepseek 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從入門到進階完整指南</p>
+            </div>
+          </a>
+          <a href="chatgpt-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">ChatGPT 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從基礎到進階應用指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">廣告位<br>300×250</div>
+        <div class="ad-slot" style="min-height:600px;">廣告位<br>300×600</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="cursor-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Cursor 教學</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">聯絡方式</a></li>
+            <li><a href="#" class="text-[#64748b] hover:text-indigo-500 transition">隱私權政策</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
