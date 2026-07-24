@@ -330,6 +330,11 @@ footer {
   color: var(--color-primary);
 }
 
+/* Article enhancement */
+.article-content .space-y-2 > li { margin-bottom: 0; }
+.article-content .space-y-3 > li { margin-bottom: 0; }
+.article-content .space-y-4 > div { margin-bottom: 0; }
+
 .back-to-top {
   position: fixed;
   bottom: 24px;
