@@ -131,52 +131,157 @@
 
       <div id="article-content" class="article-content">
 
+        <!-- ===== KEY TAKEAWAYS BOX ===== -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>ChatGPT 有免費版和 Plus 版（$20/月），差別在於 GPT-4 存取權</li>
+            <li>寫提示詞的核心原則：明確具體、分步驟、給範例</li>
+            <li>進階功能：GPT-4 多模態可分析圖片、Advanced Data Analysis 可處理 Excel 和 PDF</li>
+            <li>自訂 GPTs 可以打造專屬 AI 助手，不需寫程式</li>
+          </ul>
+        </div>
+
         <h2 id="intro">ChatGPT 是什麼？</h2>
-        <p>ChatGPT 是由 OpenAI 開發的對話式 AI 助手，自 2022 年底推出以來已成為全球用戶最多的 AI 產品。2026 年的 ChatGPT 已整合 GPT-4 多模態模型，支援文字、圖像、語音等多種互動方式，並提供自訂 GPTs、Advanced Data Analysis、Plugin 等豐富功能。</p>
+        <p>ChatGPT 是由 OpenAI 開發的對話式 AI 助手。2026 年的 ChatGPT 已整合 GPT-4 多模態模型，支援文字、圖像、語音等多種互動方式。</p>
+        <p>它可以用來寫文章、寫程式、翻譯、分析資料、腦力激盪等，是目前全球用戶最多的 AI 產品。</p>
 
         <div class="ad-slot my-8" style="min-height:90px;">廣告位 — Google AdSense 728×90</div>
 
         <h2 id="getting-started">開始使用 ChatGPT</h2>
 
         <h3 id="signup">註冊與方案選擇</h3>
-        <p>使用 ChatGPT 的第一步：</p>
-        <ol>
-          <li>前往 chat.openai.com 點擊「註冊」。</li>
-          <li>可透過 Google 帳號、Microsoft 帳號或 Email 註冊。</li>
-          <li>註冊完成後選擇方案：<strong>免費版</strong>（GPT-3.5）或 <strong>ChatGPT Plus</strong>（$20/月，含 GPT-4）。</li>
-          <li>企業用戶可選擇 ChatGPT Team（$25/人/月）或 ChatGPT Enterprise。</li>
+        <p>使用 ChatGPT 的第一步只要 3 分鐘：</p>
+        <ol class="space-y-2">
+          <li><strong>前往</strong> chat.openai.com 點擊「註冊」</li>
+          <li><strong>登入方式</strong>：Google 帳號、Microsoft 帳號或 Email</li>
+          <li><strong>選擇方案</strong>：免費版（GPT-3.5）或 Plus（$20/月，含 GPT-4）</li>
         </ol>
-        <blockquote>建議：若需要處理複雜任務、程式開發或多模態功能，建議升級至 ChatGPT Plus。</blockquote>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 建議：</strong>先從免費版開始試用，確認 ChatGPT 對你有用再升級 Plus。</p>
+        </div>
+
+        <h3 id="plans">免費版 vs Plus 方案比較</h3>
+        <table>
+          <thead>
+            <tr><th>功能</th><th>免費版</th><th>Plus（$20/月）</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>模型</td><td>GPT-3.5</td><td>GPT-4 + GPT-4o</td></tr>
+            <tr><td>多模態（圖像辨識）</td><td>❌</td><td>✅</td></tr>
+            <tr><td>Advanced Data Analysis</td><td>❌</td><td>✅</td></tr>
+            <tr><td>自訂 GPTs</td><td>❌</td><td>✅</td></tr>
+            <tr><td>訊息上限</td><td>每 3 小時 50 則</td><td>每 3 小時 400 則</td></tr>
+          </tbody>
+        </table>
 
         <h3 id="interface">介面導覽</h3>
-        <p>ChatGPT 的主要介面包含以下區域：</p>
-        <ul>
-          <li><strong>左側邊欄：</strong>對話歷史記錄、自訂 GPTs 列表、設定選項。</li>
-          <li><strong>中央對話區：</strong>顯示對話內容，支援 Markdown、程式碼高亮、圖片顯示。</li>
-          <li><strong>底部輸入框：</strong>輸入提示詞，可附加檔案（圖片、PDF、文字檔等）。</li>
-          <li><strong>模型選擇器：</strong>切換 GPT-4、GPT-4o、GPT-3.5 等模型。</li>
+        <p>ChatGPT 的主要介面分三個區域：</p>
+        <ul class="space-y-2">
+          <li><strong>左側邊欄</strong> — 對話歷史、自訂 GPTs 列表、設定</li>
+          <li><strong>中央對話區</strong> — 顯示對話內容，支援 Markdown 和程式碼高亮</li>
+          <li><strong>底部輸入框</strong> — 輸入文字，可附加圖片、PDF、文字檔</li>
         </ul>
 
         <h2 id="prompt-engineering">提示詞工程入門</h2>
-        <p>寫出好的提示詞是使用 ChatGPT 的核心技能：</p>
+        <p>寫出好的提示詞是使用 ChatGPT 的核心技能。掌握基本原則後，效果會差很多。</p>
 
-        <h3 id="prompt-basics">基本原則</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>原則</th>
-              <th>說明</th>
-              <th>範例</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>明確具體</strong></td>
-              <td>提供足夠的上下文與要求</td>
-              <td>「請用繁體中文寫一封正式的商務郵件，主旨為合作提案」</td>
-            </tr>
-            <tr>
-              <td><strong>分步驟引導</strong></td>
+        <h3 id="prompt-basics">三個基本原則</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+          <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+            <p class="font-bold text-blue-800 mb-1">🎯 明確具體</p>
+            <p class="text-sm text-blue-700">不要只說「寫一篇文」，要說「寫一篇 500 字的繁體中文產品介紹，對象是 30 歲上班族」</p>
+          </div>
+          <div class="bg-green-50 rounded-lg p-4 border border-green-100">
+            <p class="font-bold text-green-800 mb-1">📝 分步驟引導</p>
+            <p class="text-sm text-green-700">複雜任務拆成多步驟，例如「先列出大綱 → 再展開每個章節 → 最後總結」</p>
+          </div>
+          <div class="bg-purple-50 rounded-lg p-4 border border-purple-100">
+            <p class="font-bold text-purple-800 mb-1">📋 給範例</p>
+            <p class="text-sm text-purple-700">提供一個你想要的輸出範例，ChatGPT 會模仿你的語氣和格式</p>
+          </div>
+        </div>
+
+        <h3 id="prompt-examples">實用提示詞範例</h3>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <p class="text-sm font-mono text-gray-700 whitespace-pre-wrap">「你是一位專業的繁體中文編輯。請幫我修正以下文章的語法錯誤和錯字，保持原意不變，只輸出修正後的版本：[貼上文章]」</p>
+        </div>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <p class="text-sm font-mono text-gray-700 whitespace-pre-wrap">「請用表格比較 ChatGPT、Deepseek 和 Claude AI 的優缺點，包含價格、功能、適合族群三欄」</p>
+        </div>
+
+        <h2 id="advanced">進階功能</h2>
+
+        <h3 id="multimodal">GPT-4 多模態</h3>
+        <p>Plus 用戶可以上傳圖片給 ChatGPT 分析。例如：拍一張冰箱照片，請它推薦食譜。</p>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>✅ 實際應用：</strong>拍報表截圖 → ChatGPT 分析數據 → 產出 Excel 公式</p>
+        </div>
+
+        <h3 id="data-analysis">Advanced Data Analysis</h3>
+        <p>上傳 Excel、CSV、PDF 等檔案，ChatGPT 會自動分析數據並生成圖表。</p>
+        <ul class="space-y-1">
+          <li>📊 上傳銷售數據 → 自動產生趨勢圖</li>
+          <li>📄 上傳合約 PDF → 摘要重點條款</li>
+          <li>📝 上傳手寫筆記照片 → 轉成文字</li>
+        </ul>
+
+        <h3 id="gpts">自訂 GPTs</h3>
+        <p>不需寫程式就能打造專屬 AI 助手。設定好指令和知識庫後，分享給他人使用。</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📚 寫作助手 GPT</p>
+            <p class="text-sm text-gray-600">設定你的寫作風格 → 上傳參考文章 → 每次輸出的文章都符合你的語氣</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💼 簡報顧問 GPT</p>
+            <p class="text-sm text-gray-600">上傳你的簡報內容 → 自動生成大綱、講稿、QA 預測</p>
+          </div>
+        </div>
+
+        <h2 id="tips">實用技巧</h2>
+        <ul class="space-y-3">
+          <li><strong>🔹 新對話新主題</strong> — 每次新任務開新對話，避免舊對話影響新回答</li>
+          <li><strong>🔹 不滿意就追問</strong> — 說「再來一個版本」「更簡潔一點」「用表格呈現」</li>
+          <li><strong>🔹 指定角色</strong> — 「你是一位資深行銷專家」「你是一位 Python 工程師」</li>
+          <li><strong>🔹 常用指令存起來</strong> — 把常用的提示詞存成筆記，需要時直接貼上</li>
+        </ul>
+
+        <div class="bg-red-50 border-l-4 border-red-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-red-800"><strong>⚠️ 注意：</strong>ChatGPT 的回答可能包含錯誤，特別是涉及最新資訊時。重要決策建議自行查證。</p>
+        </div>
+
+        <h2 id="faq">常見問題</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">ChatGPT 和 Deepseek 哪個比較好？</p>
+            <p class="text-sm text-gray-600">看需求。ChatGPT 多模態強（圖像辨識），Deepseek 上下文長（1M Token）且免費。建議兩個都用。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">ChatGPT Plus 值得升級嗎？</p>
+            <p class="text-sm text-gray-600">如果你每天使用超過 2 小時，或需要圖像分析、檔案處理等功能，就值得。輕度用戶免費版就夠了。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">ChatGPT 會取代我的工作嗎？</p>
+            <p class="text-sm text-gray-600">不會取代你，但會取代「不會用 AI 的人」。建議把 ChatGPT 當成助手，不是替代品。</p>
+          </div>
+        </div>
+
+        <h2 id="summary">總結</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ 免費版就能體驗 ChatGPT 的基本功能</li>
+            <li>✅ Plus 版解鎖 GPT-4 多模態和資料分析</li>
+            <li>✅ 提示詞越具體，回答越有用</li>
+            <li>✅ 善用自訂 GPTs 打造專屬助手</li>
+            <li>✅ 重要資訊記得自行驗證</li>
+          </ul>
+        </div>
+
+      </div>
               <td>將複雜任務拆解為多個步驟</td>
               <td>「第一步：分析需求；第二步：設計方案；第三步：寫程式碼」</td>
             </tr>
