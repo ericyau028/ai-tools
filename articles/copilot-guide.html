@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GitHub Copilot 繁體中文完整教學 — 方案比較、Agent 模式、Claude Code 與 Codex 整合、AI Credits 計費與實戰技巧。">
+  <meta name="keywords" content="GitHub Copilot, Copilot, AI 程式開發, Claude Code, Codex, AI Credits, 程式碼助手, AI 教學">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="google-adsense-account" content="ca-pub-4900630860092971">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="GitHub Copilot 繁體中文完整教學：方案、Agent 與計費 — AI 工具導航站">
+  <meta property="og:description" content="GitHub Copilot 方案比較、Agent 模式、Claude Code 與 Codex 整合、AI Credits 計費與實戰技巧。">
+  <meta property="og:type" content="article">
+  <title>GitHub Copilot 繁體中文完整教學：方案、Agent 與計費 — AI 工具導航站</title>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-132PFXDSM9"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-132PFXDSM9");</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GitHub Copilot 繁體中文完整教學：方案、Agent 與計費",
+    "description": "GitHub Copilot 方案比較、Agent 模式、Claude Code 與 Codex 整合、AI Credits 計費與實戰技巧。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-08-02",
+    "dateModified": "2026-08-02",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/copilot-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/copilot-guide.html">
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4900630860092971" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="../articles/copilot-guide.html" class="nav-link active">Copilot 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="../articles/copilot-guide.html" class="nav-link active">Copilot 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">GitHub Copilot 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">GitHub Copilot 繁體中文完整教學：方案、Agent 與計費</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-08-02
+          </span>
+          <span>·</span>
+          <span>約 10 分鐘閱讀</span>
+          <span class="badge badge-blue">Copilot</span>
+          <span class="badge badge-purple">程式開發</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>Copilot 從單純補全工具進化為支援 Agent 模式的完整 AI 開發平台</li>
+            <li>可整合 Claude Code 與 OpenAI Codex 等第三方 Agent，統一在同一平台使用</li>
+            <li>2026 年 6 月起全面採用 AI Credits 用量計費</li>
+            <li>有免費方案（Copilot Free）可入門，付費從 Pro $10/月起</li>
+          </ul>
+        </div>
+
+        <h2 id="intro">什麼是 GitHub Copilot？</h2>
+        <p>GitHub Copilot 是由 GitHub 推出的 AI 程式開發助手，最初以程式碼自動補全聞名，如今已進化成支援 Agent 模式、程式碼審查、雲端任務的完整 AI 開發平台。</p>
+        <p>2026 年的 Copilot 不只能「補完你正在打的程式碼」，更能把整個任務交給它：研究需求、規劃架構、撰寫程式、建立 Pull Request，甚至直接指派給 Claude 或 Codex 等第三方 Agent。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;"><!-- header_banner --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4900630860092971" data-ad-slot="6428216085"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+        <h2 id="features">Copilot 核心功能</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🤖 Agent 模式</p>
+            <p class="text-sm text-gray-600">在 VS Code、Visual Studio、JetBrains 等編輯器中，把整個開發任務交給 Copilot，它會研究、規劃並撰寫程式碼，可搭配或不搭配 Pull Request。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🔗 第三方 Agent 整合</p>
+            <p class="text-sm text-gray-600">可直接在 GitHub.com、GitHub Mobile 與 VS Code 中調用 Claude（Anthropic）與 Codex（OpenAI）等 Agent，無需額外訂閱。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">⌨️ 無限補全</p>
+            <p class="text-sm text-gray-600">付費方案提供無上限的程式碼補全與「下一個編輯」建議，不消耗 AI Credits。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">✅ Copilot 程式碼審查</p>
+            <p class="text-sm text-gray-600">自動審查 Pull Request，找出潛在 bug、安全問題與程式碼品質改進建議。</p>
+          </div>
+        </div>
+
+        <h2 id="plans">方案與價格比較（2026）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>方案</th>
+              <th>價格（每人/月）</th>
+              <th>月 AI Credits</th>
+              <th>適合對象</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Copilot Free</td>
+              <td>免費</td>
+              <td>有限（2000 次補全）</td>
+              <td>想體驗的個人開發者</td>
+            </tr>
+            <tr>
+              <td>Copilot Pro</td>
+              <td>$10</td>
+              <td>1,500</td>
+              <td>個人開發者、自由工作者</td>
+            </tr>
+            <tr>
+              <td>Copilot Pro+</td>
+              <td>$39</td>
+              <td>7,000</td>
+              <td>重度使用與進階模型需求</td>
+            </tr>
+            <tr>
+              <td>Copilot Max</td>
+              <td>$100</td>
+              <td>20,000</td>
+              <td>高強度 Agent 工作流</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 關於 AI Credits：</strong>2026 年 6 月起，Chat、Agent 模式、程式碼審查、Copilot CLI 等都會消耗 AI Credits（1 Credit = $0.01 美元）。程式碼補全則維持無限。</p>
+        </div>
+
+        <h2 id="getting-started">快速開始</h2>
+
+        <h3 id="vs-code">在 VS Code 使用</h3>
+        <ol class="space-y-2">
+          <li>安裝 Visual Studio Code（需 1.120 以上）</li>
+          <li>前往擴充功能市集安裝「GitHub Copilot」</li>
+          <li>用 GitHub 帳號登入並啟用</li>
+          <li>開始寫程式時，Copilot 會自動提供補全建議（Tab 接受）</li>
+          <li>使用 Ctrl+I 開啟內嵌聊天，Ctrl+Enter 開啟完整對話</li>
+        </ol>
+
+        <h3 id="agent-mode">使用 Agent 模式</h3>
+        <ol class="space-y-2">
+          <li>在 VS Code 開啟聊天面板，切換到 Agent 模式</li>
+          <li>用自然語言描述任務，例如：「幫我寫一個爬蟲，抓取網站標題並存成 CSV」</li>
+          <li>Copilot 會自動研究專案、規劃並產生程式碼</li>
+          <li>審查變更後接受或調整</li>
+        </ol>
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>📌 進階：</strong>可在 GitHub.com 的 Agent 標籤頁把 Issue 指派給 Claude 或 Codex，Agent 會以非同步方式執行任務並以 Draft PR 形式輸出，支援 @copilot / @claude / @codex 留言。</p>
+        </div>
+
+        <h2 id="prompt-tips">實戰技巧</h2>
+
+        <h3 id="context">善用上下文</h3>
+        <p>Copilot 的建議品質取決於提供的上下文：</p>
+        <ul class="space-y-1">
+          <li>開啟相關檔案，讓 Copilot 理解既有程式碼風格</li>
+          <li>撰寫清楚的註解描述你的意圖</li>
+          <li>善用 REPO（Repository）與 ISSUE 讓 Agent 讀取專案背景</li>
+        </ul>
+
+        <h3 id="command">常用快捷鍵</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>快捷鍵</th>
+              <th>功能</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tab</td>
+              <td>接受補全建議</td>
+            </tr>
+            <tr>
+              <td>Esc</td>
+              <td>關閉補全建議</td>
+            </tr>
+            <tr>
+              <td>Ctrl+I</td>
+              <td>內嵌編輯（Inline Chat）</td>
+            </tr>
+            <tr>
+              <td>Ctrl+Enter</td>
+              <td>完整聊天視窗</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="use-cases">實際應用場景</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">⚡ 新專案快速起步</p>
+            <p class="text-sm text-gray-600">用 Agent 模式描述需求，Copilot 就能生成完整的專案骨架、設定檔與第一版程式碼。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🐛 Bug 修復與重構</p>
+            <p class="text-sm text-gray-600">圈選出錯的程式碼，請 Copilot 解釋原因並提出修正方案，再透過內嵌編輯直接套用。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📝 單元測試生成</p>
+            <p class="text-sm text-gray-600">指定函式或類別，Copilot 能自動產生涵蓋主要路徑的測試案例。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🤝 多人協作審查</p>
+            <p class="text-sm text-gray-600">在 PR 中 @ 指定 Agent，讓 AI 以非同步方式補齊測試、修復 CI 問題。</p>
+          </div>
+        </div>
+
+        <h2 id="faq">常見問題</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Copilot 有免費版嗎？</p>
+            <p class="text-sm text-gray-600">有。Copilot Free 提供每月 2000 次程式碼補全與有限度的 AI 功能，適合入門體驗。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Copilot 和 Cursor 哪個比較好？</p>
+            <p class="text-sm text-gray-600">Copilot 與 GitHub 生態整合最深，適合習慣 GitHub 工作流的開發者；Cursor 則主打 AI 優先的獨立編輯器體驗。可依喜好選擇。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">用 Copilot 生成的程式碼有版權問題嗎？</p>
+            <p class="text-sm text-gray-600">GitHub 提供 IP Indemnity 承諾，但最終仍建議遵循授權規範並審查生成內容。</p>
+          </div>
+        </div>
+
+        <h2 id="conclusion">結語</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ Agent 模式可自動完成整段開發任務</li>
+            <li>✅ 整合 Claude Code 與 Codex，選擇更彈性</li>
+            <li>✅ 免費方案即可入門，付費從 $10/月 起</li>
+            <li>✅ 程式碼補全無限，僅進階 AI 功能計費</li>
+            <li>✅ 與 GitHub 生態（PR、Issue、CI）深度整合</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-blue">Copilot</span>
+          <span class="badge badge-purple">AI 教學</span>
+          <span class="badge badge-green">程式開發</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="cursor-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-violet-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-violet-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Cursor AI 程式編輯器教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">AI 優先的程式開發工具</p>
+            </div>
+          </a>
+          <a href="gemini-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-purple-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Google Gemini 教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從入門到進階完整指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">
+<!-- sidebar_rect -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="2122827923"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+        <div class="ad-slot" style="min-height:600px;">
+<!-- sidebar_wide -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="7565057991"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="ai-tools-list.html" class="text-[#64748b] hover:text-indigo-500 transition">AI 工具大全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

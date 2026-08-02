@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Google Gemini 繁體中文完整教學 — Gemini 2.5 Pro 功能解析、1M Token 長上下文應用、Gemini API 串接、提示詞技巧與實際案例。">
+  <meta name="keywords" content="Gemini, Google Gemini, Gemini 2.5, AI 教學, 長上下文, Gemini API, 多模態, 提示詞">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="google-adsense-account" content="ca-pub-4900630860092971">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Google Gemini 繁體中文完整教學：從入門到進階 — AI 工具導航站">
+  <meta property="og:description" content="Gemini 2.5 Pro 功能解析、1M Token 長上下文應用、Gemini API 串接與提示詞技巧完整收錄。">
+  <meta property="og:type" content="article">
+  <title>Google Gemini 繁體中文完整教學：從入門到進階 — AI 工具導航站</title>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-132PFXDSM9"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-132PFXDSM9");</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Google Gemini 繁體中文完整教學：從入門到進階",
+    "description": "Gemini 2.5 Pro 功能解析、1M Token 長上下文應用、Gemini API 串接與提示詞技巧完整收錄。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-08-02",
+    "dateModified": "2026-08-02",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/gemini-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/gemini-guide.html">
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4900630860092971" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="../articles/gemini-guide.html" class="nav-link active">Gemini 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="../articles/gemini-guide.html" class="nav-link active">Gemini 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">Gemini 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">Google Gemini 繁體中文完整教學：從入門到進階</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-08-02
+          </span>
+          <span>·</span>
+          <span>約 11 分鐘閱讀</span>
+          <span class="badge badge-purple">Gemini</span>
+          <span class="badge badge-blue">新手入門</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <!-- ===== KEY TAKEAWAYS BOX ===== -->
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>Gemini 2.5 Pro 支援 1M Token 超長上下文，可一次分析整份大型程式碼庫或數小時影片</li>
+            <li>原生多模態，直接輸入文字、圖片、音訊、影片與 PDF</li>
+            <li>網頁版完全免費，也有 API 供開發者串接</li>
+            <li>內建思考（Thinking）能力，推理與程式撰寫表現頂尖</li>
+          </ul>
+        </div>
+
+        <h2 id="intro">什麼是 Google Gemini？</h2>
+        <p>Gemini 是 Google DeepMind 打造的原生多模態 AI 模型系列，從 Gemini 2.0 演進到 Gemini 2.5，是目前 Google 最強的主力模型。</p>
+        <p>與多數聊天機器人不同，Gemini 從一開始就以「多模態」為設計核心，能同時理解文字、圖片、音訊、影片與 PDF，加上 1M Token 的超長上下文，讓它成為分析大型資料與程式碼庫的利器。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;"><!-- header_banner --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4900630860092971" data-ad-slot="6428216085"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+        <h2 id="models">Gemini 2.5 模型家族</h2>
+        <p>Gemini 2.5 系列涵蓋不同需求，從頂尖推理到低成本大量調用都有對應選擇：</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🧠 Gemini 2.5 Pro</p>
+            <p class="text-sm text-gray-600">旗艦思考模型，擅長程式、數學與 STEM 複雜推理，可分析大型資料集與程式碼庫。輸入上限 1M Token、輸出 65,536 Token。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">⚡ Gemini 2.5 Flash</p>
+            <p class="text-sm text-gray-600">混合推理模型，支援 1M Token 上下文與可調思考預算，在品質、成本與延遲間取得平衡，適合日常複雜任務。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💰 Gemini 2.5 Flash-Lite</p>
+            <p class="text-sm text-gray-600">最小、最省成本的模型，專為大規模調用設計，輸入每 1M Token 僅 $0.10 美元，適合高吞吐量場景。</p>
+          </div>
+        </div>
+
+        <h2 id="features">Gemini 2.5 核心功能</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📚 1M Token 超長上下文</p>
+            <p class="text-sm text-gray-600">單次對話可輸入最多 100 萬 Token，約等於整本《白鯨記》或數百頁技術文件，也能一次塞入整個程式碼庫進行分析。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎬 原生多模態理解</p>
+            <p class="text-sm text-gray-600">直接輸入圖片、音訊、影片（最多約 3 小時）與 PDF。可請 Gemini 分析圖片內容、整理影片重點，無需預處理。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💭 思考（Thinking）能力</p>
+            <p class="text-sm text-gray-600">內建 Chain-of-Thought 推理，可自訂思考預算在品質與成本間取捨。在 Humanity's Last Exam、GPQA 等基準名列前茅。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🔧 工具串接</p>
+            <p class="text-sm text-gray-600">支援 Function Calling、程式執行、Google 搜尋與地圖 grounding、結構化輸出，可打造 Agentic 應用。</p>
+          </div>
+        </div>
+
+        <h2 id="getting-started">快速開始</h2>
+
+        <h3 id="web-use">使用網頁版</h3>
+        <p>最簡單的使用方式：</p>
+        <ol class="space-y-2">
+          <li>前往 Gemini 官方網站（gemini.google.com）</li>
+          <li>使用 Google 帳號登入</li>
+          <li>選擇模型（Gemini 2.5 Pro 或 Flash）</li>
+          <li>開始對話，支援繁體中文與圖片/檔案上傳</li>
+        </ol>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 提示：</strong>網頁版免費且無明顯使用次數限制，適合一般使用者。開發者若要大量調用或整合進產品，建議使用 Gemini API。</p>
+        </div>
+
+        <h3 id="api-setup">申請 Gemini API</h3>
+        <ol class="space-y-2">
+          <li>前往 Google AI Studio（aistudio.google.com）</li>
+          <li>使用 Google 帳號登入，點擊「Get API key」</li>
+          <li>複製 API Key 並妥善保存</li>
+          <li>免費版有一定額度，付費版按量計費</li>
+        </ol>
+
+        <h3 id="api-basic">基本 API 串接範例</h3>
+        <p>以下是一個使用官方 SDK 的 Python 範例：</p>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <pre class="text-sm font-mono text-gray-700 whitespace-pre-wrap overflow-x-auto">from google import genai
+
+client = genai.Client(api_key="your-gemini-api-key")
+
+response = client.models.generate_content(
+    model="gemini-2.5-pro",
+    contents="請用繁體中文解釋何謂長上下文（Long Context）。"
+)
+
+print(response.text)</pre>
+        </div>
+
+        <h2 id="prompt-tips">提示詞技巧</h2>
+        <p>以下是一些針對 Gemini 的提示詞最佳實踐：</p>
+
+        <h3 id="prompt-structure">結構化提示詞</h3>
+        <p>Gemini 對結構清晰的提示詞回應品質較高：</p>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <pre class="text-sm font-mono text-gray-700 whitespace-pre-wrap">## 任務
+分析下列 10 份 PDF 文件的重點
+
+## 要求
+- 輸出繁體中文
+- 用條列式整理每個文件的核心結論
+- 標註文件之間的共通主題
+- 最後提供一份 200 字總結</pre>
+        </div>
+
+        <h3 id="prompt-thinking">啟用思考模式</h3>
+        <ul class="space-y-1">
+          <li>直接使用「請逐步思考再回答」</li>
+          <li>設定思考預算來控制深度與成本</li>
+          <li>對需要嚴格邏輯的任務（數學、程式）效果特別明顯</li>
+        </ul>
+
+        <h2 id="use-cases">實際應用案例</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💻 程式碼庫分析</p>
+            <p class="text-sm text-gray-600">利用 1M Token 上下文直接輸入整個 repo，請 Gemini 理解架構、找出 bug 或撰寫測試，大幅提升開發效率。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎞️ 影片與會議記錄</p>
+            <p class="text-sm text-gray-600">上傳長達數小時的影片或錄音，Gemini 能輸出逐字重點、行動項目與討論摘要。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📄 合約與研究論文</p>
+            <p class="text-sm text-gray-600">一次分析多份 PDF，提取關鍵條款、交叉比對並找出潛在風險。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🌐 多語系內容在地化</p>
+            <p class="text-sm text-gray-600">Gemini 在 Global MMLU 多語系基準表現優異，適合翻譯、文案在地化與跨語系 SEO。</p>
+          </div>
+        </div>
+
+        <h2 id="pricing">Gemini API 價格（2026）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>模型</th>
+              <th>輸入（每 1M Token）</th>
+              <th>輸出（每 1M Token）</th>
+              <th>上下文</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Gemini 2.5 Pro</td>
+              <td>$1.25（≤200K）/ $2.50（&gt;200K）</td>
+              <td>$10.00 / $15.00</td>
+              <td>1M Token</td>
+            </tr>
+            <tr>
+              <td>Gemini 2.5 Flash</td>
+              <td>$0.30（文字/圖/影）/ $1.00（音訊）</td>
+              <td>$2.50</td>
+              <td>1M Token</td>
+            </tr>
+            <tr>
+              <td>Gemini 2.5 Flash-Lite</td>
+              <td>$0.10（文字/圖/影）</td>
+              <td>$0.40</td>
+              <td>1M Token</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>📊 總結：</strong>Flash-Lite 價格最低、Flash 兼顧品質與成本、Pro 提供最強推理能力，可按需求彈性選擇。</p>
+        </div>
+
+        <h2 id="faq">常見問題</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Gemini 網頁版免費嗎？</p>
+            <p class="text-sm text-gray-600">是，gemini.google.com 網頁版免費使用。API 有免費額度，超過後按量計費。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Gemini 和 ChatGPT 哪個比較好？</p>
+            <p class="text-sm text-gray-600">兩者各有擅長。Gemini 的 1M Token 長上下文與 Google 服務整合是其優勢；ChatGPT 生態系與外掛較成熟。建議依任務選擇。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Gemini 支援中文嗎？</p>
+            <p class="text-sm text-gray-600">支援，繁體與簡體中文皆可，且多語系能力優異。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Gemini API 商用有授權限制嗎？</p>
+            <p class="text-sm text-gray-600">透過 Gemini API 使用時，Google 的服務條款允許商用，請依官方條款規範使用。</p>
+          </div>
+        </div>
+
+        <h2 id="conclusion">結語</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ 1M Token 超長上下文，適合大型文件與程式碼分析</li>
+            <li>✅ 原生多模態，支援圖片、音訊、影片與 PDF</li>
+            <li>✅ 內建思考能力，推理與程式撰寫頂尖</li>
+            <li>✅ 網頁版免費，API 價格具競爭力</li>
+            <li>✅ 繁體中文支援優異，適合台灣使用者</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-purple">Gemini</span>
+          <span class="badge badge-blue">AI 教學</span>
+          <span class="badge badge-green">多模態</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="ai-tools-list.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">2026 年最新 AI 工具大全</h4>
+              <p class="text-[#64748b] text-xs mt-1">50+ 必備 AI 工具完整整理</p>
+            </div>
+          </a>
+          <a href="chatgpt-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">ChatGPT 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從基礎到進階應用指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">
+<!-- sidebar_rect -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="2122827923"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+        <div class="ad-slot" style="min-height:600px;">
+<!-- sidebar_wide -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="7565057991"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="ai-tools-list.html" class="text-[#64748b] hover:text-indigo-500 transition">AI 工具大全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
