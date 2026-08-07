@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ElevenLabs 繁體中文完整教學 — AI 語音生成平台全解析，文字轉語音、聲音複製、多語系語音、Voice Design、方案比較與應用案例。">
+  <meta name="keywords" content="ElevenLabs, AI 語音, TTS, 文字轉語音, 聲音複製, Voice Design, 有聲書, AI 教學">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="google-adsense-account" content="ca-pub-4900630860092971">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="ElevenLabs 繁體中文完整教學：AI 語音生成平台全解析 — AI 工具導航站">
+  <meta property="og:description" content="ElevenLabs 文字轉語音、聲音複製、Voice Design、多語系語音與方案比較完整教學。">
+  <meta property="og:type" content="article">
+  <title>ElevenLabs 繁體中文完整教學：AI 語音生成平台全解析 — AI 工具導航站</title>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-132PFXDSM9"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-132PFXDSM9");</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ElevenLabs 繁體中文完整教學：AI 語音生成平台全解析",
+    "description": "ElevenLabs 文字轉語音、聲音複製、Voice Design、多語系語音與方案比較完整教學。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-08-08",
+    "dateModified": "2026-08-08",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/elevenlabs-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/elevenlabs-guide.html">
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4900630860092971" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="elevenlabs-guide.html" class="nav-link active">ElevenLabs 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="elevenlabs-guide.html" class="nav-link active">ElevenLabs 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">ElevenLabs 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">ElevenLabs 繁體中文完整教學：AI 語音生成平台全解析</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-08-08
+          </span>
+          <span>·</span>
+          <span>約 9 分鐘閱讀</span>
+          <span class="badge badge-purple">ElevenLabs</span>
+          <span class="badge badge-blue">語音</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>ElevenLabs 是 AI 語音生成領域的領先平台，支援 40+ 語言、含繁體中文</li>
+            <li>核心功能：文字轉語音（TTS）、聲音複製（Voice Cloning）、Voice Design</li>
+            <li>可將文稿快速轉成自然流暢的有聲書、配音與影片旁白</li>
+            <li>提供免費方案（每月少量字數額度）與多級付費方案</li>
+          </ul>
+        </div>
+
+        <h2 id="intro">什麼是 ElevenLabs？</h2>
+        <p>ElevenLabs 是一家成立於 2022 年的 AI 語音公司，憑藉高度自然的 AI 語音合成技術迅速成為市場領導者。它的語音模型能生成幾乎與真人無異的語音，支援情感、語氣與語速控制，廣受創作者、出版業與遊戲產業使用。</p>
+        <p>ElevenLabs 支援超過 40 種語言，其中包含繁體中文，讓繁體中文使用者也能直接生成高品質的中文語音。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;"><!-- header_banner --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4900630860092971" data-ad-slot="6428216085"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+        <h2 id="features">ElevenLabs 核心功能</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🗣️ 文字轉語音（TTS）</p>
+            <p class="text-sm text-gray-600">輸入文字即可生成高品質語音，支援語速、音調、停頓與多語系調整，適合影片旁白與有聲書。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎤 聲音複製（Voice Cloning）</p>
+            <p class="text-sm text-gray-600">上傳幾分鐘的錄音，即可複製特定聲音。進階版支援 Instant Voice Cloning，幾秒即可建立聲音模型。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎨 Voice Design</p>
+            <p class="text-sm text-gray-600">不需任何錄音，透過描述性參數（年齡、性別、語氣、特色）設計全新聲音，快速打造專屬角色配音。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🌍 多語系與翻譯</p>
+            <p class="text-sm text-gray-600">語音模型支援 40+ 語言，並可將同一聲音翻譯成多種語言，適合跨語言內容製作。</p>
+          </div>
+        </div>
+
+        <h2 id="getting-started">快速開始</h2>
+
+        <h3 id="web-use">使用 ElevenLabs 網頁版</h3>
+        <ol class="space-y-2">
+          <li>前往 ElevenLabs 官方網站（elevenlabs.io）註冊帳號</li>
+          <li>免費方案提供每月少量字數額度，足以測試</li>
+          <li>在 Text to Speech 面板輸入文字並選擇聲音</li>
+          <li>調整參數後點擊 Generate 生成音檔下載</li>
+        </ol>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 提示：</strong>複製真人聲音前務必取得對方同意，並遵守當地法規與平台政策，避免侵犯肖像與聲音權。</p>
+        </div>
+
+        <h3 id="api-setup">使用 API</h3>
+        <p>ElevenLabs 提供完整的 REST API，可將語音生成整合進自己的產品：</p>
+
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <pre class="text-sm font-mono text-gray-700 whitespace-pre-wrap overflow-x-auto">import requests
+
+url = "https://api.elevenlabs.io/v1/text-to-speech/{voice_id}"
+headers = {
+    "xi-api-key": "your-elevenlabs-api-key",
+    "Content-Type": "application/json"
+}
+data = {
+    "text": "你好，這是 ElevenLabs 的繁體中文語音測試。",
+    "model_id": "eleven_multilingual_v2"
+}
+response = requests.post(url, json=data, headers=headers)
+with open("output.mp3", "wb") as f:
+    f.write(response.content)</pre>
+        </div>
+
+        <h2 id="prompt-tips">生成高品質語音技巧</h2>
+
+        <ul class="space-y-2">
+          <li><strong>加入停頓標記：</strong>使用逗號、句號與換行控制節奏，可加入「…」製造自然停頓</li>
+          <li><strong>調整穩定性與相似度：</strong>穩定性越高語音越平穩，相似度越高越接近原始聲音</li>
+          <li><strong>善用語氣調整：</strong>可用 <em>&lt;em&gt;強調&lt;/em&gt;</em> 等標記強調特定詞彙</li>
+          <li><strong>分段生成：</strong>長內容建議分段生成再合併，品質更穩定</li>
+        </ul>
+
+        <h2 id="use-cases">實際應用案例</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📚 有聲書</p>
+            <p class="text-sm text-gray-600">將書籍文稿轉成自然的有聲書，大幅降低製作成本，出版業大量採用。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎬 影片配音</p>
+            <p class="text-sm text-gray-600">為 YouTube、社群影片與廣告快速產生旁白配音，支援多語系一鍵翻譯。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎮 遊戲與角色</p>
+            <p class="text-sm text-gray-600">用 Voice Design 打造 NPC 與角色聲音，快速建立大量對話內容。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🏢 企業應用</p>
+            <p class="text-sm text-gray-600">客服語音、系統導航、培訓教材與多語系企業簡報。</p>
+          </div>
+        </div>
+
+        <h2 id="pricing">ElevenLabs 方案比較（2026）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>方案</th>
+              <th>每月額度</th>
+              <th>適合對象</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Free</td>
+              <td>每月 10,000 字元</td>
+              <td>體驗與測試</td>
+            </tr>
+            <tr>
+              <td>Starter</td>
+              <td>每月 30,000 字元</td>
+              <td>個人創作者</td>
+            </tr>
+            <tr>
+              <td>Creator</td>
+              <td>每月 100,000 字元＋進階聲音工具</td>
+              <td>專業創作者</td>
+            </tr>
+            <tr>
+              <td>Pro / Scale</td>
+              <td>大額度＋商用授權</td>
+              <td>企業與出版</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>📊 總結：</strong>免費方案已可體驗核心 TTS，正式製作再依需求升級。商用請確認方案授權是否涵蓋商業用途。</p>
+        </div>
+
+        <h2 id="faq">常見問題</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">ElevenLabs 支援繁體中文嗎？</p>
+            <p class="text-sm text-gray-600">支援。多語系模型（eleven_multilingual_v2）包含繁體中文，可直接生成高品質中文語音。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">ElevenLabs 免費嗎？</p>
+            <p class="text-sm text-gray-600">有免費方案，每月提供 10,000 字元額度。完整功能與商用授權需付費方案。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">可以複製別人的聲音嗎？</p>
+            <p class="text-sm text-gray-600">技術上可以，但複製真人聲音前必須取得對方明確同意，並遵守平台政策與當地法規。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">生成的語音可以用於商業嗎？</p>
+            <p class="text-sm text-gray-600">付費方案的授權通常涵蓋商業用途，請詳閱各方案服務條款確認。</p>
+          </div>
+        </div>
+
+        <h2 id="conclusion">結語</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ 最自然的 AI 語音之一，支援繁體中文</li>
+            <li>✅ TTS、聲音複製、Voice Design 一次到位</li>
+            <li>✅ 適用有聲書、配音、遊戲與企業應用</li>
+            <li>⚠️ 免費額度有限，商用需付費方案</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-purple">ElevenLabs</span>
+          <span class="badge badge-blue">AI 教學</span>
+          <span class="badge badge-green">語音</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="ai-tools-list.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">2026 年最新 AI 工具大全</h4>
+              <p class="text-[#64748b] text-xs mt-1">50+ 必備 AI 工具完整整理</p>
+            </div>
+          </a>
+          <a href="suno-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-amber-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-amber-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Suno AI 音樂生成教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">v5.5 模型與方案比較</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">
+<!-- sidebar_rect -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="2122827923"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+        <div class="ad-slot" style="min-height:600px;">
+<!-- sidebar_wide -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="7565057991"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="ai-tools-list.html" class="text-[#64748b] hover:text-indigo-500 transition">AI 工具大全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Runway 繁體中文完整教學 — AI 影片生成工具 Runway Gen-4 功能解析、文字生影片、圖生影片、Motion Brush、方案比較與實戰技巧。">
+  <meta name="keywords" content="Runway, AI 影片, Gen-4, 文字生影片, 圖生影片, Motion Brush, AI 教學, 影片生成">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="google-adsense-account" content="ca-pub-4900630860092971">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Runway 繁體中文完整教學：AI 影片生成工具全解析 — AI 工具導航站">
+  <meta property="og:description" content="Runway Gen-4 功能解析、文字生影片、圖生影片、Motion Brush、方案比較與實戰技巧。">
+  <meta property="og:type" content="article">
+  <title>Runway 繁體中文完整教學：AI 影片生成工具全解析 — AI 工具導航站</title>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-132PFXDSM9"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-132PFXDSM9");</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Runway 繁體中文完整教學：AI 影片生成工具全解析",
+    "description": "Runway Gen-4 功能解析、文字生影片、圖生影片、Motion Brush、方案比較與實戰技巧。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-08-08",
+    "dateModified": "2026-08-08",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/runway-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/runway-guide.html">
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4900630860092971" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="runway-guide.html" class="nav-link active">Runway 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="runway-guide.html" class="nav-link active">Runway 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">Runway 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">Runway 繁體中文完整教學：AI 影片生成工具全解析</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-08-08
+          </span>
+          <span>·</span>
+          <span>約 9 分鐘閱讀</span>
+          <span class="badge badge-purple">Runway</span>
+          <span class="badge badge-blue">影片生成</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>Runway 是 AI 影片生成領域的領先平台，Gen-4 模型支援高品質影片生成</li>
+            <li>支援文字生影片、圖生影片、Motion Brush 動態筆刷與背景替換</li>
+            <li>從免費方案到企業方案，依生成額度與功能分級</li>
+            <li>適合創作者、廣告與影視前期製作快速產出概念影片</li>
+          </ul>
+        </div>
+
+        <h2 id="intro">什麼是 Runway？</h2>
+        <p>Runway 是一家美國 AI 研究公司，也是 AI 影片生成工具的領導品牌。它的產品線涵蓋文字生影片、圖生影片、影片編輯與特效工具，其中 Gen 系列模型（Gen-1 到 Gen-4）持續推進 AI 影片的品質上限。</p>
+        <p>Runway 在 2023 年獲得《不可能的任務》導演 Christopher Nolan 等影視界的注意，也是全球知名電影特效公司、廣告代理商與獨立創作者常用的 AI 工具之一。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;"><!-- header_banner --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4900630860092971" data-ad-slot="6428216085"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+        <h2 id="models">Runway Gen-4 核心功能</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎬 文字生影片（Text to Video）</p>
+            <p class="text-sm text-gray-600">直接輸入文字描述，Gen-4 模型產生符合描述的動態影片片段，支援多種風格與鏡位。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🖼️ 圖生影片（Image to Video）</p>
+            <p class="text-sm text-gray-600">上傳一張圖片，AI 將靜態圖像延伸為動態影片，可控制鏡頭運動與主體動作。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🖌️ Motion Brush 動態筆刷</p>
+            <p class="text-sm text-gray-600">在圖片上圈選特定區域，指定該區域的運動方向與幅度，精準控制畫面中哪些元素要動。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🌅 背景替換與綠幕</p>
+            <p class="text-sm text-gray-600">一鍵移除背景、替換場景或產生綠幕素材，方便後製合成，適合商業影片製作。</p>
+          </div>
+        </div>
+
+        <h2 id="getting-started">快速開始</h2>
+
+        <h3 id="web-use">使用 Runway 網頁版</h3>
+        <ol class="space-y-2">
+          <li>前往 Runway 官方網站（runwayml.com）註冊帳號</li>
+          <li>免費方案提供少量生成額度，付費後額度大幅增加</li>
+          <li>在 Generate 面板選擇 Gen-4，輸入文字或上傳圖片</li>
+          <li>設定鏡頭運動、風格參數後開始生成</li>
+        </ol>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 提示：</strong>AI 影片生成較耗時，一次生成通常需等待 30 秒至數分鐘。建議先以低解析度預覽，確認構圖與動作正確後再生成高解析版本，節省額度。</p>
+        </div>
+
+        <h2 id="prompt-tips">提示詞技巧</h2>
+        <p>高品質影片提示詞需要包含「主體、動作、環境、光線、風格、鏡頭」等要素：</p>
+
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <pre class="text-sm font-mono text-gray-700 whitespace-pre-wrap">Cinematic shot, a lone traveler walking across a foggy mountain ridge
+at sunrise, warm golden light, dramatic clouds, epic scale,
+shot on 35mm film, slow dolly push-in, photorealistic</pre>
+        </div>
+
+        <ul class="space-y-1">
+          <li><strong>主體：</strong>明確描述人物／物體與其狀態</li>
+          <li><strong>動作：</strong>說明正在進行的動作或運動</li>
+          <li><strong>環境與光線：</strong>時間、天氣、氛圍</li>
+          <li><strong>鏡頭：</strong>推近（dolly）、橫移（pan）、鳥瞰（aerial）等</li>
+          <li><strong>風格：</strong>寫實、卡通、動畫、黑白等</li>
+        </ul>
+
+        <h2 id="use-cases">實際應用案例</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📣 廣告與行銷</p>
+            <p class="text-sm text-gray-600">快速產出產品概念影片、社群貼文影片與廣告素材，大幅降低製作成本與時間。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎬 影視前期製作</p>
+            <p class="text-sm text-gray-600">用 AI 快速生成分鏡概念圖與動態預覽（animatic），幫助導演與團隊溝通畫面。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎮 遊戲與動畫</p>
+            <p class="text-sm text-gray-600">產生環境場景、過場動畫與概念演示，加速創作流程。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🖥️ 內容創作</p>
+            <p class="text-sm text-gray-600">YouTube、TikTok 創作者可快速產出片頭、背景素材與視覺特效。</p>
+          </div>
+        </div>
+
+        <h2 id="pricing">Runway 方案比較（2026）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>方案</th>
+              <th>主要內容</th>
+              <th>適合對象</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Free</td>
+              <td>少量額度、含浮水印、最多 720p</td>
+              <td>體驗與測試</td>
+            </tr>
+            <tr>
+              <td>Standard</td>
+              <td>每月固定額度、無浮水印、更高解析度</td>
+              <td>個人創作者</td>
+            </tr>
+            <tr>
+              <td>Pro</td>
+              <td>更多額度、優先生成、團隊協作</td>
+              <td>專業創作者與小型團隊</td>
+            </tr>
+            <tr>
+              <td>Enterprise</td>
+              <td>客製額度、專屬支援、商用授權</td>
+              <td>企業與大型團隊</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>📊 總結：</strong>先從免費方案試用，確認符合需求後再選擇付費方案。商業用途請確認方案授權是否涵蓋商用。</p>
+        </div>
+
+        <h2 id="faq">常見問題</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Runway 免費嗎？</p>
+            <p class="text-sm text-gray-600">有免費方案，提供少量生成額度但帶浮水印且解析度受限。需完整功能建議使用付費方案。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Runway 和 Sora 差在哪？</p>
+            <p class="text-sm text-gray-600">Sora 是 OpenAI 的影片生成模型，Runway 則提供更完整的編輯與特效工具鏈。兩者可依需求選擇。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Runway 生成的影片可以商用嗎？</p>
+            <p class="text-sm text-gray-600">付費方案通常涵蓋商用授權，但需遵守平台服務條款。免費方案請勿用於商業用途。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">生成一段影片要多久？</p>
+            <p class="text-sm text-gray-600">依解析度與模型負載，通常需 30 秒至數分鐘。繁忙時段可能更久。</p>
+          </div>
+        </div>
+
+        <h2 id="conclusion">結語</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ AI 影片生成領導品牌，Gen-4 品質優異</li>
+            <li>✅ 文字/圖生影片、Motion Brush、背景替換一次到位</li>
+            <li>✅ 適合廣告、影視前期與內容創作</li>
+            <li>⚠️ 免費方案額度少、付費較貴</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-purple">Runway</span>
+          <span class="badge badge-blue">AI 教學</span>
+          <span class="badge badge-green">影片生成</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="ai-tools-list.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">2026 年最新 AI 工具大全</h4>
+              <p class="text-[#64748b] text-xs mt-1">50+ 必備 AI 工具完整整理</p>
+            </div>
+          </a>
+          <a href="stable-diffusion-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-rose-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">Stable Diffusion 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">SDXL 到 SD 3.5 繪圖指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">
+<!-- sidebar_rect -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="2122827923"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+        <div class="ad-slot" style="min-height:600px;">
+<!-- sidebar_wide -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="7565057991"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="ai-tools-list.html" class="text-[#64748b] hover:text-indigo-500 transition">AI 工具大全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
