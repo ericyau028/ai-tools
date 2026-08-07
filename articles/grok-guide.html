@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Grok AI 繁體中文完整教學 — xAI 開發的 AI 助手，Grok 4 功能解析、即時資訊、圖片生成、API 串接與使用技巧。">
+  <meta name="keywords" content="Grok, xAI, Grok 4, AI 教學, Elon Musk, 即時資訊, 圖片生成, API">
+  <meta name="author" content="AI Tools Hub">
+  <meta name="google-adsense-account" content="ca-pub-4900630860092971">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="Grok AI 繁體中文完整教學：功能、圖片生成與使用技巧 — AI 工具導航站">
+  <meta property="og:description" content="xAI 的 Grok AI 完整教學 — Grok 4 功能解析、即時資訊、圖片生成、API 串接與使用技巧。">
+  <meta property="og:type" content="article">
+  <title>Grok AI 繁體中文完整教學：功能、圖片生成與使用技巧 — AI 工具導航站</title>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-132PFXDSM9"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-132PFXDSM9");</script><script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Grok AI 繁體中文完整教學：功能、圖片生成與使用技巧",
+    "description": "xAI 的 Grok 完整解析 — Grok 4 功能解析、即時資訊、圖片生成、API 串接與使用技巧。",
+    "author": { "@type": "Organization", "name": "AI Tools Hub" },
+    "datePublished": "2026-08-08",
+    "dateModified": "2026-08-08",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://ai.cubedhub.com/articles/grok-guide.html" }
+  }
+  </script>
+  <link rel="canonical" href="https://ai.cubedhub.com/articles/grok-guide.html">
+  <script src='https://cdn.tailwindcss.com'></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4900630860092971" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Noto Sans TC', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-[#1e293b] min-h-screen flex flex-col">
+
+  <div id="reading-progress" class="fixed top-0 left-0 h-1 bg-indigo-500 z-[200] transition-[width] duration-100" style="width:0%"></div>
+
+  <nav class="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="../index.html" class="flex items-center gap-2 text-[#1e293b] font-bold text-xl">
+          <svg class="w-8 h-8 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+          </svg>
+          <span>AI 工具導航站</span>
+        </a>
+        <div class="hidden md:flex items-center gap-1">
+          <a href="../index.html" class="nav-link">首頁</a>
+          <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+          <a href="grok-guide.html" class="nav-link active">Grok 教學</a>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="relative hidden sm:block">
+            <input id="search-input" type="text" placeholder="搜尋工具或教學..." class="w-48 lg:w-64 bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500 transition">
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#94a3b8]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-[#f1f5f9] transition" aria-label="選單">
+            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white border-l border-[#e2e8f0] z-50 p-6 md:hidden">
+      <div class="flex justify-between items-center mb-8">
+        <span class="text-[#1e293b] font-bold text-lg">選單</span>
+        <button id="menu-close" class="p-2 rounded-lg hover:bg-[#f1f5f9]" onclick="document.getElementById('mobile-menu').classList.remove('open'); document.getElementById('menu-overlay').classList.add('hidden');">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+      <div class="flex flex-col gap-2">
+        <a href="../index.html" class="nav-link">首頁</a>
+        <a href="../index.html#tools" class="nav-link">AI 工具分類</a>
+        <a href="grok-guide.html" class="nav-link active">Grok 教學</a>
+      </div>
+      <div class="mt-6">
+        <input type="text" placeholder="搜尋工具或教學..." class="w-full bg-white border border-[#e2e8f0] rounded-lg px-4 py-2 text-sm text-[#1e293b] placeholder-[#94a3b8] focus:outline-none focus:border-indigo-500">
+      </div>
+    </div>
+    <div id="menu-overlay" class="hidden fixed inset-0 bg-black/30 z-40 md:hidden"></div>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-6">
+    <nav class="flex items-center text-sm text-[#64748b] flex-wrap" aria-label="breadcrumb">
+      <a href="../index.html" class="hover:text-indigo-500 transition">首頁</a>
+      <span class="mx-2">›</span>
+      <span class="text-[#1e293b]">Grok 教學</span>
+    </nav>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 flex gap-8">
+
+    <aside class="hidden lg:block w-56 flex-shrink-0">
+      <div class="toc">
+        <h4 class="text-[#1e293b] font-semibold text-sm mb-3 px-3">目錄</h4>
+        <div id="toc-list" class="flex flex-col gap-0.5"></div>
+      </div>
+    </aside>
+
+    <article class="flex-1 min-w-0">
+      <header class="mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-[#1e293b] mb-4 leading-tight">Grok AI 繁體中文完整教學：功能、圖片生成與使用技巧</h1>
+        <div class="flex flex-wrap items-center gap-3 text-sm text-[#64748b]">
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            AI Tools Hub 編輯部
+          </span>
+          <span>·</span>
+          <span class="flex items-center gap-1">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            2026-08-08
+          </span>
+          <span>·</span>
+          <span>約 9 分鐘閱讀</span>
+          <span class="badge badge-purple">Grok</span>
+          <span class="badge badge-blue">新手入門</span>
+        </div>
+      </header>
+
+      <div id="article-content" class="article-content">
+
+        <div class="bg-indigo-50 border-l-4 border-indigo-500 rounded-r-lg p-5 mb-8">
+          <p class="font-bold text-indigo-800 text-sm mb-2">📌 本文重點（30 秒速讀）</p>
+          <ul class="text-sm text-indigo-700 space-y-1 ml-4 list-disc">
+            <li>Grok 是 xAI（Elon Musk 創辦）打造的 AI 助手，主打即時資訊與直白風格</li>
+            <li>Grok 4 支援長上下文、圖片生成與深度推理</li>
+            <li>深度整合 X（Twitter）平台，可即時分析社群動態</li>
+            <li>提供網頁版、App 與 API，部分功能需 X Premium 訂閱</li>
+          </ul>
+        </div>
+
+        <h2 id="intro">什麼是 Grok？</h2>
+        <p>Grok 是由 xAI（Elon Musk 於 2023 年創立的 AI 公司）開發的對話式 AI 助手。名稱取自科幻小說《銀河便車指南》中的「Grok」一詞，意為「深刻理解」。</p>
+        <p>Grok 最大的特色是能即時存取 X（Twitter）平台上的最新資訊，並以較為直白、幽默甚至帶點「叛逆」的語氣回應，與其他追求「政治正確」的 AI 形成鮮明對比。</p>
+
+        <div class="ad-slot my-8" style="min-height:90px;"><!-- header_banner --><ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-4900630860092971" data-ad-slot="6428216085"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
+
+        <h2 id="models">Grok 模型家族</h2>
+        <p>Grok 系列持續演進，目前主要版本如下：</p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🧠 Grok 4</p>
+            <p class="text-sm text-gray-600">最新旗艦模型，強化推理與長上下文能力，支援圖片生成與深度思考模式，是 xAI 目前最強的主力模型。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">⚡ Grok 4 Fast</p>
+            <p class="text-sm text-gray-600">強調速度與效率的版本，回應更快，適合需要即時互動的場景，犧牲部分深度推理換取低延遲。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🖼️ Grok Imagine</p>
+            <p class="text-sm text-gray-600">專注圖片生成的模型，可依文字描述產生高品質圖像，並支援風格化與編輯。</p>
+          </div>
+        </div>
+
+        <h2 id="features">Grok 核心功能</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📡 即時資訊</p>
+            <p class="text-sm text-gray-600">直接存取 X 平台即時動態，可分析最新新聞、趨勢與熱門話題，回答「現在發生什麼事」類型的問題。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🖼️ 圖片生成</p>
+            <p class="text-sm text-gray-600">內建圖片生成能力，可依文字描述產生圖像，並支援上傳圖片進行分析與編輯。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💭 深度思考</p>
+            <p class="text-sm text-gray-600">Grok 4 支援深度思考模式，在回答複雜問題前先進行內部推理，提升邏輯與準確度。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🔗 X 深度整合</p>
+            <p class="text-sm text-gray-600">與 X 平台深度整合，可分析貼文、回覆與帳號，適合社群經營與輿情分析。</p>
+          </div>
+        </div>
+
+        <h2 id="getting-started">快速開始</h2>
+
+        <h3 id="web-use">使用方式</h3>
+        <ol class="space-y-2">
+          <li>前往 Grok 官方網站（grok.com）或使用 X 平台內建的 Grok 入口</li>
+          <li>使用 X（Twitter）帳號登入</li>
+          <li>免費版有基本使用額度，進階功能需 X Premium 訂閱</li>
+          <li>開始對話，支援繁體中文與圖片上傳</li>
+        </ol>
+
+        <div class="bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-amber-800"><strong>💡 提示：</strong>Grok 的免費額度有限，若要完整使用圖片生成與深度思考功能，通常需要 X Premium 或 SuperGrok 訂閱。</p>
+        </div>
+
+        <h3 id="api-setup">申請 Grok API</h3>
+        <ol class="space-y-2">
+          <li>前往 xAI 官方 API 平台（console.x.ai）</li>
+          <li>註冊並建立 API Key</li>
+          <li>選擇模型（grok-4 或 grok-4-fast）</li>
+          <li>免費版有一定額度，付費版按量計費</li>
+        </ol>
+
+        <h3 id="api-basic">基本 API 串接範例</h3>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <pre class="text-sm font-mono text-gray-700 whitespace-pre-wrap overflow-x-auto">from openai import OpenAI
+
+client = OpenAI(
+    api_key="your-xai-api-key",
+    base_url="https://api.x.ai/v1"
+)
+
+response = client.chat.completions.create(
+    model="grok-4",
+    messages=[{"role": "user", "content": "請用繁體中文介紹 Grok 的特色。"}]
+)
+
+print(response.choices[0].message.content)</pre>
+        </div>
+
+        <h2 id="prompt-tips">提示詞技巧</h2>
+        <p>Grok 支援標準的提示詞技巧，以下是一些實用建議：</p>
+
+        <h3 id="prompt-structure">善用即時資訊</h3>
+        <p>Grok 的強項是即時資訊，可這樣運用：</p>
+        <div class="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+          <pre class="text-sm font-mono text-gray-700 whitespace-pre-wrap">## 任務
+分析今天 X 平台上關於「AI 手機」的熱門討論
+
+## 要求
+- 用繁體中文整理主要觀點
+- 標註最熱門的 3 則貼文重點
+- 總結整體輿論走向</pre>
+        </div>
+
+        <h3 id="prompt-thinking">啟用深度思考</h3>
+        <ul class="space-y-1">
+          <li>對複雜問題可要求「請深度思考後回答」</li>
+          <li>Grok 4 的推理能力在程式與邏輯任務表現良好</li>
+          <li>結合即時資訊與推理，可獲得兼具時效性與深度的回答</li>
+        </ul>
+
+        <h2 id="use-cases">實際應用案例</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📰 即時新聞分析</p>
+            <p class="text-sm text-gray-600">利用即時資訊能力，快速掌握最新事件脈絡、多方觀點與社群反應。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">📣 社群經營</p>
+            <p class="text-sm text-gray-600">分析貼文成效、發想話題、撰寫回應，並追蹤競品動態。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">🎨 創意圖片</p>
+            <p class="text-sm text-gray-600">用 Grok Imagine 快速產生概念圖、社群貼文配圖與行銷素材。</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-gray-200">
+            <p class="font-bold text-gray-800 mb-1">💻 程式輔助</p>
+            <p class="text-sm text-gray-600">Grok 4 的推理能力適合程式除錯、架構設計與程式碼審查。</p>
+          </div>
+        </div>
+
+        <h2 id="pricing">Grok 訂閱與價格（2026）</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>方案</th>
+              <th>主要內容</th>
+              <th>適合對象</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>免費版</td>
+              <td>基本對話、有限額度</td>
+              <td>一般體驗</td>
+            </tr>
+            <tr>
+              <td>X Premium</td>
+              <td>較高額度、圖片生成、深度思考</td>
+              <td>X 重度使用者</td>
+            </tr>
+            <tr>
+              <td>SuperGrok</td>
+              <td>完整功能、更高額度、API 優惠</td>
+              <td>進階使用者</td>
+            </tr>
+            <tr>
+              <td>API 按量計費</td>
+              <td>開發者串接，依 Token 計費</td>
+              <td>開發者</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="bg-indigo-50 border-l-4 border-indigo-400 rounded-r-lg p-4 my-4">
+          <p class="text-sm text-indigo-800"><strong>📊 總結：</strong>一般使用者可從免費版開始，需要完整功能再升級 X Premium；開發者則使用 API 按量計費。</p>
+        </div>
+
+        <h2 id="faq">常見問題</h2>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Grok 免費嗎？</p>
+            <p class="text-sm text-gray-600">有免費版，但額度有限。完整功能（圖片生成、深度思考）通常需要 X Premium 或 SuperGrok 訂閱。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Grok 和 ChatGPT 差在哪？</p>
+            <p class="text-sm text-gray-600">Grok 主打即時 X 資訊與直白風格，ChatGPT 生態系與外掛較成熟。Grok 在即時資訊與社群分析上有優勢。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Grok 支援中文嗎？</p>
+            <p class="text-sm text-gray-600">支援，繁體與簡體中文皆可，但中文能力與 ChatGPT、Gemini 相比仍有一定差距。</p>
+          </div>
+          <div class="bg-white rounded-lg border border-gray-200 p-4">
+            <p class="font-bold text-gray-800 mb-1">Grok 一定要用 X 帳號嗎？</p>
+            <p class="text-sm text-gray-600">網頁版與 App 通常需要 X 帳號登入。API 則可獨立註冊 xAI 帳號使用。</p>
+          </div>
+        </div>
+
+        <h2 id="conclusion">結語</h2>
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 rounded-lg p-5 border border-indigo-100">
+          <ul class="space-y-2 text-sm text-gray-700">
+            <li>✅ 即時 X 資訊，適合新聞與社群分析</li>
+            <li>✅ 內建圖片生成與深度思考</li>
+            <li>✅ 直白幽默的對話風格</li>
+            <li>✅ 支援 API 串接</li>
+            <li>⚠️ 完整功能需訂閱，中文能力仍有進步空間</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+        <div class="flex flex-wrap gap-2 mb-6">
+          <span class="text-sm text-[#64748b] mr-2">標籤：</span>
+          <span class="badge badge-purple">Grok</span>
+          <span class="badge badge-blue">AI 教學</span>
+          <span class="badge badge-green">即時資訊</span>
+        </div>
+
+        <h3 class="text-lg font-bold text-[#1e293b] mb-4">相關文章推薦</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <a href="ai-tools-list.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">2026 年最新 AI 工具大全</h4>
+              <p class="text-[#64748b] text-xs mt-1">50+ 必備 AI 工具完整整理</p>
+            </div>
+          </a>
+          <a href="chatgpt-guide.html" class="card p-4 flex items-center gap-4">
+            <div class="w-12 h-12 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0">
+              <svg class="w-6 h-6 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/>
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[#1e293b] text-sm">ChatGPT 完整教學</h4>
+              <p class="text-[#64748b] text-xs mt-1">從基礎到進階應用指南</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <aside class="hidden xl:block w-56 flex-shrink-0">
+      <div class="sticky top-24 flex flex-col gap-6">
+        <div class="ad-slot" style="min-height:250px;">
+<!-- sidebar_rect -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:250px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="2122827923"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+        <div class="ad-slot" style="min-height:600px;">
+<!-- sidebar_wide -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-4900630860092971"
+     data-ad-slot="7565057991"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+      </div>
+    </aside>
+
+  </div>
+
+  <footer class="py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 text-[#1e293b] font-bold text-lg mb-3">
+            <svg class="w-6 h-6 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0112 15a9.065 9.065 0 00-6.23.693L5 14.5m14.8.8l1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0112 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/>
+            </svg>
+            AI 工具導航站
+          </div>
+          <p class="text-[#94a3b8] text-sm">繁體中文最大 AI 工具學習平台。</p>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">熱門工具</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="chatgpt-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">ChatGPT 教學</a></li>
+            <li><a href="deepseek-guide.html" class="text-[#64748b] hover:text-indigo-500 transition">Deepseek 教學</a></li>
+            <li><a href="ai-tools-list.html" class="text-[#64748b] hover:text-indigo-500 transition">AI 工具大全</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">工具分類</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">對話式 AI</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">AI 繪圖生成</a></li>
+            <li><a href="../index.html#tools" class="text-[#64748b] hover:text-indigo-500 transition">程式開發 AI</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[#1e293b] font-semibold mb-3">關於</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="../index.html#about" class="text-[#64748b] hover:text-indigo-500 transition">關於我們</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-[#e2e8f0] pt-6 text-center text-[#94a3b8] text-sm">
+        &copy; 2026 AI 工具導航站 AI Tools Hub — All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="back-to-top" aria-label="回到頂部">
+    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
